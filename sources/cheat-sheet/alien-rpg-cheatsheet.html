@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alien RPG - HTML Cheat Sheet</title>
+    <link rel="stylesheet" href="./../../styles/alien-rpg.css">
+    <link rel="stylesheet" href="./../html-sources/styles/alienrpg.css">
+    <link rel="stylesheet" href="./floating-nav.css">
+    <style>
+        body {
+            max-width: 1200px;
+            margin: 2em auto;
+            padding: 2em;
+            background: #0d1f13;
+            color: #e0e0e0;
+        }
+
+        .cheat-section {
+            margin: 3em 0;
+            padding: 2em;
+            background: rgba(127, 176, 105, 0.05);
+            border-left: 4px solid #7fb069;
+        }
+
+        .cheat-title {
+            font-family: 'Courier New', monospace;
+            color: #d4af37;
+            font-size: 1.2em;
+            margin-bottom: 1em;
+            padding-bottom: 0.5em;
+            border-bottom: 2px solid #3a5f47;
+        }
+
+        .cheat-code {
+            background: #000;
+            color: #7fb069;
+            padding: 1em;
+            margin: 1em 0;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            white-space: pre-wrap;
+            line-height: 1.5;
+        }
+
+        .cheat-note {
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 3px solid #d4af37;
+            padding: 0.75em;
+            margin: 1em 0;
+            font-size: 0.9em;
+            color: #d4af37;
+        }
+
+        /* Mermaid diagram styling */
+        .mermaid {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1em;
+            border-radius: 4px;
+        }
+    </style>
+    <!-- Mermaid Diagram Library -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            themeVariables: {
+                primaryColor: '#7fb069',
+                primaryTextColor: '#0d1f13',
+                primaryBorderColor: '#3a5f47',
+                lineColor: '#7fb069',
+                secondaryColor: '#3a5f47',
+                tertiaryColor: '#0d1f13',
+                background: '#0d1f13',
+                mainBkg: '#1a3a24',
+                nodeBorder: '#7fb069',
+                clusterBkg: 'rgba(127, 176, 105, 0.1)',
+                titleColor: '#d4af37',
+                edgeLabelBackground: '#0d1f13'
+            },
+            flowchart: {
+                curve: 'basis',
+                padding: 15
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+    <!-- Navigation Toggle Button -->
+    <button class="alien-nav-toggle" id="navToggle">Hide</button>
+
+    <!-- Floating Navigation Sidebar -->
+    <nav class="alien-floating-nav" id="floatingNav">
+        <div class="alien-floating-nav-title">Navigation</div>
+        <ul>
+            <li><a href="#section-1" data-section="1">1. Chapter Start</a></li>
+            <li><a href="#section-2" data-section="2">2. Text Elements</a></li>
+            <li><a href="#section-2a" data-section="2a">2a. H1 Pre-Header</a></li>
+            <li><a href="#section-2b" data-section="2b">2b. Indent Paragraph</a></li>
+            <li><a href="#section-3" data-section="3">3. Ship's Log</a></li>
+            <li><a href="#section-4" data-section="4">4. Timeline</a></li>
+            <li><a href="#section-5" data-section="5">5. Info Boxes</a></li>
+            <li><a href="#section-6" data-section="6">6. Example Box</a></li>
+            <li><a href="#section-6b" data-section="6b">6b. Example w/ Header</a></li>
+            <li><a href="#section-7" data-section="7">7. Tables</a></li>
+            <li><a href="#section-8" data-section="8">8. Code Highlight</a></li>
+            <li><a href="#section-9" data-section="9">9. Icons</a></li>
+            <li><a href="#section-10" data-section="10">10. Three Column Layout</a></li>
+            <li><a href="#section-11" data-section="11">11. Quotes</a></li>
+            <li><a href="#section-12" data-section="12">12. H1 Sub-Quote</a></li>
+            <li><a href="#section-13" data-section="13">13. Phase Indicators</a></li>
+            <li><a href="#section-14" data-section="14">14. Lists</a></li>
+            <li><a href="#section-15" data-section="15">15. Navigation</a></li>
+            <li><a href="#section-16" data-section="16">16. Sequences</a></li>
+            <li><a href="#section-17" data-section="17">17. Stat Blocks</a></li>
+            <li><a href="#section-18" data-section="18">18. Flow Diagram</a></li>
+            <li><a href="#section-18b" data-section="18b">18b. Mermaid Diagrams</a></li>
+        </ul>
+    </nav>
+
+    <div class="alien-content">
+        <h1 style="text-align: center; border-bottom: 3px solid #7fb069; padding-bottom: 0.5em;">
+            ALIEN RPG - HTML ELEMENT CHEAT SHEET
+        </h1>
+
+        <p style="text-align: center; font-size: 1.1em; margin: 2em 0;">
+            Copy and paste these HTML snippets into your chapter files. Replace the placeholder text with content from
+            your PDF.
+        </p>
+
+        <!-- ========================================== -->
+        <!-- CHAPTER START -->
+        <!-- ========================================== -->
+
+        <div class="cheat-section" id="section-1">
+            <div class="cheat-title">1. CHAPTER START - HERO BOX</div>
+            <p>Use this at the beginning of each chapter. Creates a hero box with horizontal dividing lines between
+                sections. The pipe decorators (|) are added automatically by CSS.</p>
+
+            <div class="cheat-code">&lt;div class="alien-chapter-start"&gt;
+    &lt;div class="alien-chapter-number"&gt;Chapter 01&lt;/div&gt;
+    &lt;h1 class="alien-chapter-title"&gt;
+        Space&lt;br/&gt;Is Hell
+    &lt;/h1&gt;
+    &lt;div class="alien-chapter-quote"&gt;
+        "In space no one can hear you scream."
+    &lt;/div&gt;
+    &lt;div class="alien-chapter-footer"&gt;Alien, 1979&lt;/div&gt;
+&lt;/div&gt;</div>
+
+            <div class="cheat-note">
+                <strong>Note:</strong> The footer shows the quote source. Each section is separated by a horizontal line
+                with decorative pipe connectors.
+            </div>
+
+            <div class="cheat-note">Preview:</div>
+            <div style="max-width: 700px;">
+                <div class="alien-chapter-start">
+                    <div class="alien-chapter-number">Chapter 01</div>
+                    <h1 class="alien-chapter-title">
+                        Space<br />Is Hell
+                    </h1>
+                    <div class="alien-chapter-quote">
+                        "In space no one can hear you scream."
+                    </div>
+                    <div class="alien-chapter-footer">Alien, 1979</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- BASIC TEXT ELEMENTS -->
+        <!-- ========================================== -->
+
+        <div class="cheat-section" id="section-2">
+            <div class="cheat-title">2. BASIC TEXT ELEMENTS</div>
+
+            <div class="cheat-code">&lt;h1&gt;Main Heading&lt;/h1&gt;
+&lt;h2&gt;Section Heading &lt;sub&gt;Sub Heading&lt;/sub&gt;&lt;/h2&gt;
+
+&lt;p&gt;Regular paragraph with &lt;strong&gt;bold text&lt;/strong&gt; and
+   &lt;h3&gt;green highlighted terms&lt;/h3&gt; that are inline.&lt;/p&gt;</div>
+
+            <div class="cheat-note">
+                <strong>Note:</strong> H1 has a bottom border and is for major sections. H2 has a bottom border and is for subsections. H3 is an <strong>inline element</strong> (doesn't line break) styled in green bold - use it to highlight important game terms within paragraphs.
+            </div>
+
+            <div class="cheat-note">Preview:</div>
+            <div style="max-width: 700px;">
+                <h1>Main Heading</h1>
+                <h2>Section Heading <sub>Sub Heading</sub></h2>
+                <p>Regular paragraph with <strong>bold text</strong> and <h3>green highlighted terms</h3> that are inline.</p>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- H1 PRE-HEADER -->
+        <!-- ========================================== -->
+
+        <div class="cheat-section" id="section-2a">
+            <div class="cheat-title">2a. H1 PRE-HEADER (CATEGORY/PREFIX)</div>
+
+            <div class="cheat-code">&lt;div class="alien-h1-pre-header"&gt;Chapter 01&lt;/div&gt;
+&lt;h1&gt;Space Is Hell&lt;/h1&gt;</div>
+
+            <div class="cheat-note">
+                <strong>Note:</strong> The pre-header appears above an H1 in a smaller, dimmed style. Perfect for chapter numbers, categories, or section prefixes.
+            </div>
+
+            <div class="cheat-note">Preview:</div>
+            <div style="max-width: 700px;">
+                <div class="alien-h1-pre-header">Chapter 01</div>
+                <h1>Space Is Hell</h1>
+                <p>This is content under the heading...</p>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- INDENTED PARAGRAPH WITH UNDERLINED FIRST WORD -->
+        <!-- ========================================== -->
+
+        <div class="cheat-section" id="section-2b">
+            <div class="cheat-title">2b. INDENTED PARAGRAPH WITH UNDERLINED FIRST WORD</div>
+
+            <div class="cheat-code">&lt;p class="alien-indent-paragraph"&gt;
+    &lt;span class="first-word"&gt;Colonists&lt;/span&gt; reach for the stars and gamble
+    with their lives – each new world tamed is either feast or famine.
+&lt;/p&gt;</div>
+
+            <div class="cheat-note">
+                <strong>Note:</strong> The paragraph starts with a 2em indent. The first word must be wrapped in a <code>&lt;span class="first-word"&gt;</code> to get the underline effect.
+            </div>
+
+            <div class="cheat-note">Preview:</div>
+            <div style="max-width: 700px;">
+                <p class="alien-indent-paragraph">
+                    <span class="first-word">Colonists</span> reach for the stars and gamble
+                    with their lives – each new world tamed is either feast or famine.
+                    And there are things lurking in the shadows of every asteroid –
+                    things strange and different and deadly.
+                </p>
+                <p class="alien-indent-paragraph">
+                    <span class="first-word">Space</span> isn't as empty as you'd think,
+                    either – its frontiers are ever expanding. Rival governments wage
+                    a cold war of aggression while greedy corporations vie for valuable
+                    resources.
+                </p>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SHIP'S LOG -->
+        <!-- ========================================== -->
+
+        <div class="cheat-section" id="section-3">
+            <div class="cheat-title">3. SHIP'S LOG STORY CARDS</div>
+
+            <div class="cheat-code">&lt;!-- Choose one of 5 waveform patterns --&gt;
+&lt;div class="alien-ships-log"&gt;
+    &lt;div class="alien-ships-log-header-row"&gt;
+        &lt;div class="alien-ships-log-header"&gt;Ship's Log&lt;/div&gt;
+        &lt;div class="alien-ships-log-meta"&gt;008:30 / USCSS MIRANDA&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="alien-ships-log-recorder-row"&gt;
+        &lt;div class="alien-ships-log-recorder"&gt;CAPTAIN CHARLIZE RECORDING&lt;/div&gt;
+        &lt;div class="alien-ships-log-waveform alien-ships-log-waveform-2"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="alien-ships-log-transcription"&gt;
+        Final report of the commercial starship Nostromo, third officer reporting.
+        The other members of the crew are dead. Cargo and ship destroyed.
+    &lt;/div&gt;
+&lt;/div&gt;</div>
+
+
+            <div class="cheat-note">
+                <strong>Waveform Patterns:</strong> Choose one of 5 visually distinct patterns. Each starts with quiet
+                bars
+                and then has random variation with unique characteristics:
+                <ul style="margin-top: 0.5em; margin-bottom: 0; line-height: 1.6;">
+                    <li><strong>alien-ships-log-waveform-1</strong>: Sparse activity with occasional spikes</li>
+                    <li><strong>alien-ships-log-waveform-2</strong>: Clustered bursts with gaps</li>
+                    <li><strong>alien-ships-log-waveform-3</strong>: Jagged peaks - sharp spikes and valleys</li>
+                    <li><strong>alien-ships-log-waveform-4</strong>: Dense forest - many medium bars packed together
+                    </li>
+                    <li><strong>alien-ships-log-waveform-5</strong>: Rolling waves - smooth undulation</li>
+                </ul>
+                The waveform is automatically generated by CSS! Just add an empty div with both classes and the pattern
+                appears. Right-aligned, 50% width, no HTML needed inside!
+            </div>
+
+            <div class="cheat-note">Previews of all 5 patterns:</div>
+
+            <div style="max-width: 700px;">
+                <div class="alien-ships-log">
+                    <div class="alien-ships-log-header-row">
+                        <div class="alien-ships-log-header">Ship's Log</div>
+                        <div class="alien-ships-log-meta">001:12 / USCSS TORRENS</div>
+                    </div>
+                    <div class="alien-ships-log-recorder-row">
+                        <div class="alien-ships-log-recorder">Pattern 1: Quiet/Calm</div>
+                        <div class="alien-ships-log-waveform alien-ships-log-waveform-1"></div>
+                    </div>
+                    <div class="alien-ships-log-transcription">
+                        ...barely audible whisper... crew asleep... all systems nominal...
+                    </div>
+                </div>
+
+                <div class="alien-ships-log">
+                    <div class="alien-ships-log-header-row">
+                        <div class="alien-ships-log-header">Ship's Log</div>
+                        <div class="alien-ships-log-meta">008:30 / USCSS NOSTROMO</div>
+                    </div>
+                    <div class="alien-ships-log-recorder-row">
+                        <div class="alien-ships-log-recorder">Pattern 2: Moderate/Steady</div>
+                        <div class="alien-ships-log-waveform alien-ships-log-waveform-2"></div>
+                    </div>
+                    <div class="alien-ships-log-transcription">
+                        Final report of the commercial starship Nostromo, third officer reporting. The other members of
+                        the
+                        crew are dead. Cargo and ship destroyed.
+                    </div>
+                </div>
+
+                <div class="alien-ships-log">
+                    <div class="alien-ships-log-header-row">
+                        <div class="alien-ships-log-header">Ship's Log</div>
+                        <div class="alien-ships-log-meta">012:45 / USCSS SULACO</div>
+                    </div>
+                    <div class="alien-ships-log-recorder-row">
+                        <div class="alien-ships-log-recorder">Pattern 3: Intense/Loud</div>
+                        <div class="alien-ships-log-waveform alien-ships-log-waveform-3"></div>
+                    </div>
+                    <div class="alien-ships-log-transcription">
+                        MAYDAY! MAYDAY! WE ARE UNDER ATTACK! HOSTILES BREACHING HULL! REQUESTING IMMEDIATE EVACUATION!
+                        THIS
+                        IS NOT A DRILL!
+                    </div>
+                </div>
+
+                <div class="alien-ships-log">
+                    <div class="alien-ships-log-header-row">
+                        <div class="alien-ships-log-header">Ship's Log</div>
+                        <div class="alien-ships-log-meta">015:22 / USCSS COVENANT</div>
+                    </div>
+                    <div class="alien-ships-log-recorder-row">
+                        <div class="alien-ships-log-recorder">Pattern 4: Mixed/Erratic</div>
+                        <div class="alien-ships-log-waveform alien-ships-log-waveform-4"></div>
+                    </div>
+                    <div class="alien-ships-log-transcription">
+                        ...static... signal breaking up... interference from... *crackle* ...unknown source... can't
+                        maintain... *static* ...losing transmission...
+                    </div>
+                </div>
+
+                <div class="alien-ships-log">
+                    <div class="alien-ships-log-header-row">
+                        <div class="alien-ships-log-header">Ship's Log</div>
+                        <div class="alien-ships-log-meta">019:07 / USCSS PROMETHEUS</div>
+                    </div>
+                    <div class="alien-ships-log-recorder-row">
+                        <div class="alien-ships-log-recorder">Pattern 5: Crescendo</div>
+                        <div class="alien-ships-log-waveform alien-ships-log-waveform-5"></div>
+                    </div>
+                    <div class="alien-ships-log-transcription">
+                        Everything seems calm at first... but something's not right... the sensors are picking up
+                        movement... it's getting closer... THEY'RE IN THE VENTS!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- TIMELINE -->
+        <!-- ========================================== -->
+
+        <div class="cheat-section" id="section-4">
+            <div class="cheat-title">4. TIMELINE (VERTICAL)</div>
+
+            <div class="cheat-code">&lt;div class="alien-timeline"&gt;
+    &lt;div class="alien-timeline-item"&gt;
+        &lt;div class="alien-timeline-date"&gt;2122&lt;/div&gt;
+        &lt;div class="alien-timeline-content"&gt;The Nostromo responds to a distress signal.&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="alien-timeline-item"&gt;
+        &lt;div class="alien-timeline-date"&gt;2179&lt;/div&gt;
+        &lt;div class="alien-timeline-content"&gt;Ripley is recovered after 57 years in hypersleep.&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="alien-timeline-item"&gt;
+        &lt;div class="alien-timeline-date"&gt;2183&lt;/div&gt;
+        &lt;div class="alien-timeline-content"&gt;The colony on LV-426 goes silent.&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</div>
+
+            <div class="cheat-note">Preview:</div>
+            <div style="max-width: 700px;">
+                <div class="alien-timeline">
+                    <div class="alien-timeline-item">
+                        <div class="alien-timeline-date">2122</div>
+                        <div class="alien-timeline-content">The Nostromo responds to a distress signal.</div>
+                    </div>
+                    <div class="alien-timeline-item">
+                        <div class="alien-timeline-date">2179</div>
+                        <div class="alien-timeline-content">Ripley is recovered after 57 years in hypersleep.</div>
+                    </div>
+                    <div class="alien-timeline-item">
+                        <div class="alien-timeline-date">2183</div>
+                        <div class="alien-timeline-content">The colony on LV-426 goes silent.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- INFO BOXES -->
+        <!-- ========================================== -->
+
+        <div class="cheat-section" id="section-5">
+            <div class="cheat-title">5. INFO BOXES - FOUR STYLES</div>
+            <p>Info boxes come in four different styles depending on the visual emphasis needed.</p>
+
+            <h3 style="color: #7fb069; margin-top: 1.5em;">Style 1: Top Border (Light Background)</h3>
+            <p>Thick top border with lightly colored background. Can include an optional title.</p>
+
+            <div class="cheat-code">&lt;!-- Top Border Box (no title) --&gt;
+&lt;div class="alien-info-box-top-border"&gt;
+    &lt;p&gt;This is important information with a light background and thick top border.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Top Border Box (with title) --&gt;
+&lt;div class="alien-info-box-top-border"&gt;
+    &lt;div class="alien-info-box-title"&gt;Optional Title&lt;/div&gt;
+    &lt;p&gt;Content of the info box goes here.&lt;/p&gt;
+&lt;/div&gt;</div>
+
+            <div class="cheat-note">Preview:</div>
+            <div style="max-width: 700px;">
+                <div class="alien-info-box-top-border">
+                    <p>This is important information with a light background and thick top border.</p>
+                </div>
+                <div class="alien-info-box-top-border">
+                    <div class="alien-info-box-title">Optional Title</div>
+                    <p>Content of the info box goes here.</p>
+                </div>
+            </div>
+
+            <h3 style="color: #7fb069; margin-top: 2em;">Style 2: Tab Header (No Background)</h3>
+            <p>Tab-style header protruding from top with transparent background and borders.</p>
+
+            <div class="cheat-code">&lt;div class="alien-info-box-tab"&gt;
+    &lt;div class="alien-info-box-tab-header"&gt;Important Rule&lt;/div&gt;
+    &lt;p&gt;Content with a tab header and no background color.&lt;/p&gt;
+&lt;/div&gt;</div>
+
+            <div class="cheat-note">Preview:</div>
+            <div style="max-width: 700px;">
+                <div class="alien-info-box-tab">
+                    <div class="alien-info-box-tab-header">Important Rule</div>
+                    <p>Content with a tab header and no background color.</p>
+                </div>
+            </div>
+
+            <h3 style="color: #7fb069; margin-top: 2em;">Style 3: Inverted (Borders Only)</h3>
+            <p>Single stroke borders all around with no background. Can include an optional title.</p>
+
+            <div class="cheat-code">&lt;!-- Inverted Box (no title) --&gt;
+&lt;div class="alien-info-box-inverted"&gt;
+    &lt;p&gt;Content with borders but no background.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Inverted Box (with title) --&gt;
+&lt;div class="alien-info-box-inverted"&gt;
+    &lt;div class="alien-info-box-title"&gt;Optional Title&lt;/div&gt;
+    &lt;p&gt;Content of the inverted box goes here.&lt;/p&gt;
+&lt;/div&gt;</div>
+
+            <div class="cheat-note">Preview:</div>
+            <div style="max-width: 700px;">
+                <div class="alien-info-box-inverted">
+                    <p>Content with borders but no background.</p>
+                </div>
+                <div class="alien-info-box-inverted">
+                    <div class="alien-info-box-title">Optional Title</div>
+                    <p>Content of the inverted box goes here.</p>
+                </div>
+            </div>
+
+            <h3 style="color: #7fb069; margin-top: 2em;">Style 4: Solid Background (Original)</h3>
+            <p>Solid green background. Can include an optional title.</p>
+
+            <div class="cheat-code">&lt;!-- Solid Background Box --&gt;
+&lt;div class="alien-info-box"&gt;
+    &lt;p&gt;This is important information displayed in a solid green box.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Solid Background Box (with title) --&gt;
+&lt;div class="alien-info-box"&gt;
+    &lt;div class="alien-info-box-title"&gt;Title Here&lt;/div&gt;
+    &lt;p&gt;Content of the solid info box goes here.&lt;/p&gt;
+&lt;/div&gt;</div>
+
+            <div class="cheat-note">Preview:</div>
+            <div style="max-width: 700px;">
+                <div class="alien-info-box">
+                    <p>This is important information displayed in a solid green box.</p>
+                </div>
+                <div class="alien-info-box">
+                    <div class="alien-info-box-title">Title Here</div>
+                    <p>Content of the solid info box goes here.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- EXAMPLE BOX -->
+        <!-- ========================================== -->
+
+        <div class="cheat-section" id="section-6">
+            <div class="cheat-title">6. EXAMPLE BOX</div>
+
+            <div class="cheat-code">&lt;div class="alien-example-box"&gt;
+    &lt;div class="alien-example-box-title"&gt;Example&lt;/div&gt;
+    &lt;p&gt;This is an example of how a rule works in practice.&lt;/p&gt;
+&lt;/div&gt;</div>
+
+            <div class="cheat-note">Preview:</div>
+            <div style="max-width: 700px;">
+                <div class="alien-example-box">
+                    <div class="alien-example-box-title">Example</div>
+                    <p>This is an example of how a rule works in practice.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- EXAMPLE BOX WITH HEADER -->
+        <!-- ========================================== -->
+
+        <div class="cheat-section" id="section-6b">
+            <div class="cheat-title">6b. EXAMPLE BOX WITH HEADER ROW</div>
+
+            <div class="cheat-code">&lt;div class="alien-example-box-with-header"&gt;
+    &lt;div class="alien-example-box-header-row"&gt;
+        &lt;div class="alien-example-box-label"&gt;Example&lt;/div&gt;
+        &lt;div class="alien-example-box-headline"&gt;Creating a Character&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="alien-example-box-content"&gt;
+        &lt;p&gt;Sarah wants to create a character for the ALIEN RPG.
+        She decides to play a Colonial Marine...&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</div>
+
+            <div class="cheat-note">Preview:</div>
+            <div style="max-width: 700px;">
+                <div class="alien-example-box-with-header">
+                    <div class="alien-example-box-header-row">
+                        <div class="alien-example-box-label">Example</div>
+                        <div class="alien-example-box-headline">Creating a Character</div>
+                    </div>
+                    <div class="alien-example-box-content">
+                        <p>Sarah wants to create a character for the ALIEN RPG.
+                        She decides to play a Colonial Marine and begins by rolling
+                        her attributes...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- TABLES -->
+        <!-- ========================================== -->
+
+        <div class="cheat-section" id="section-7">
+            <div class="cheat-title">7. TABLES</div>
+
+            <div class="cheat-code">&lt;table class="alien-table"&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Attribute&lt;/th&gt;
+            &lt;th&gt;Value&lt;/th&gt;
+            &lt;th&gt;Description&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Strength&lt;/td&gt;
+            &lt;td&gt;4&lt;/td&gt;
+            &lt;td&gt;Physical power&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Agility&lt;/td&gt;
+            &lt;td&gt;5&lt;/td&gt;
+            &lt;td&gt;Speed and reflexes&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</div>
+
+            <div class="cheat-note">Preview:</div>
+            <div style="max-width: 700px;">
+                <table class="alien-table">
+                    <thead>
+                        <tr>
+                            <th>Attribute</th>
+                            <th>Value</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Strength</td>
+                            <td>4</td>
+                            <td>Physical power</td>
+                        </tr>
+                        <tr>
+                            <td>Agility</td>
+                            <td>5</td>
+                            <td>Speed and reflexes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- CODE HIGHLIGHT -->
+        <!-- ========================================== -->
+
+        <div class="cheat-section" id="section-8">
+            <div class="cheat-title">8. CODE/HIGHLIGHT FOR SPECIFIC WORDS</div>
+
+            <div class="cheat-code">&lt;p&gt;Use the &lt;span class="alien-code"&gt;PANIC&lt;/span&gt; action when stress reaches maximum.&lt;/p&gt;</div>
+
+            <div class="cheat-note">Preview:</div>
+            <p>Use the <span class="alien-code">PANIC</span> action when stress reaches maximum.</p>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- ICONS -->
+        <!-- ========================================== -->
+
+        <div class="cheat-section" id="section-9">
+            <div class="cheat-title">9. ICONS (SVG)</div>
+            <p>Display inline SVG icons for dice results and warnings. These are pure CSS - no image files needed!</p>
+
+            <div class="cheat-subtitle">Dice Icons</div>
+            <div class="cheat-code">&lt;!-- Success Die Face (green cross) --&gt;
+&lt;p&gt;You rolled a success! &lt;span class="alien-dice-success"&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;!-- Stress Failure Die Face (yellow facehugger) --&gt;
+&lt;p&gt;Stress die shows failure &lt;span class="alien-dice-stress-failure"&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;!-- Multiple dice results --&gt;
+&lt;p&gt;Roll result: &lt;span class="alien-dice-success"&gt;&lt;/span&gt;&lt;span class="alien-dice-success"&gt;&lt;/span&gt;&lt;span class="alien-dice-stress-failure"&gt;&lt;/span&gt;&lt;/p&gt;</div>
+
+            <div class="cheat-note">
+                <strong>Note:</strong> The dice icons are self-contained SVG graphics defined entirely in CSS.
+                The success die shows a green cross (╋), and the stress failure die shows a stylized facehugger
+                with its tail forming a circle around it in yellow/gold. Leave the span content empty - the icon
+                appears automatically!
+            </div>
+
+            <div class="cheat-note">Preview:</div>
+            <div style="max-width: 700px;">
+                <p>You rolled a success! <span class="alien-dice-success"></span></p>
+                <p>Stress die shows failure <span class="alien-dice-stress-failure"></span></p>
+                <p>Roll result: <span class="alien-dice-success"></span><span class="alien-dice-success"></span><span class="alien-dice-stress-failure"></span></p>
+                <p style="font-size: 2em;">Large size: <span class="alien-dice-success"></span> <span class="alien-dice-stress-failure"></span></p>
+            </div>
+
+            <div class="cheat-subtitle">Warning Icon</div>
+            <div class="cheat-code">&lt;!-- Warning icon inherits text color --&gt;
+&lt;p&gt;Caution! &lt;span class="alien-warning-icon"&gt;&lt;/span&gt; Check your gear.&lt;/p&gt;
+
+&lt;!-- Warning icon with colored text --&gt;
+&lt;p class="alien-text-warning"&gt;&lt;span class="alien-warning-icon"&gt;&lt;/span&gt; Warning: Xenomorph detected!&lt;/p&gt;
+&lt;p class="alien-text-danger"&gt;&lt;span class="alien-warning-icon"&gt;&lt;/span&gt; CRITICAL: Hull breach imminent!&lt;/p&gt;</div>
+
+            <div class="cheat-note">
+                <strong>Note:</strong> The warning icon uses CSS masking to inherit the current text color.
+                This means it automatically matches whatever color the surrounding text uses!
+            </div>
+
+            <div class="cheat-note">Preview:</div>
+            <div style="max-width: 700px;">
+                <p>Caution! <span class="alien-warning-icon"></span> Check your gear.</p>
+                <p class="alien-text-warning"><span class="alien-warning-icon"></span> Warning: Xenomorph detected!</p>
+                <p class="alien-text-danger"><span class="alien-warning-icon"></span> CRITICAL: Hull breach imminent!</p>
+                <p style="font-size: 2em;">Large size: <span class="alien-warning-icon"></span></p>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- THREE COLUMN LAYOUT -->
+        <!-- ========================================== -->
+
+        <div class="cheat-section" id="section-10">
+            <div class="cheat-title">10. THREE COLUMN LAYOUT</div>
+            <p>Create a 3-column layout with button-like boxes stacked on the left and right, and centered content in the middle.</p>
+
+            <div class="cheat-code">&lt;div class="alien-three-column"&gt;
+    &lt;!-- Left column with stacked boxes --&gt;
+    &lt;div class="alien-side-column"&gt;
+        &lt;div class="alien-button-box"&gt;PUSH&lt;/div&gt;
+        &lt;div class="alien-button-box"&gt;EVADE&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Center column with centered text --&gt;
+    &lt;div class="alien-center-column"&gt;
+        &lt;div&gt;
+            &lt;h3&gt;CHOOSE YOUR ACTION&lt;/h3&gt;
+            &lt;p&gt;Select a maneuver or attack option&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Right column with stacked boxes --&gt;
+    &lt;div class="alien-side-column"&gt;
+        &lt;div class="alien-button-box"&gt;ATTACK&lt;/div&gt;
+        &lt;div class="alien-button-box"&gt;RETREAT&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</div>
+
+            <div class="cheat-note">
+                <strong>Note:</strong> The layout uses flexbox to create three columns. Side columns auto-size to their content,
+                while the center column expands to fill available space. Use button boxes to display labeled options or information.
+            </div>
+
+            <div class="cheat-note">Preview:</div>
+            <div class="alien-three-column">
+                <div class="alien-side-column">
+                    <div class="alien-button-box">PUSH</div>
+                    <div class="alien-button-box">EVADE</div>
+                </div>
+                <div class="alien-center-column">
+                    <div>
+                        <h3>CHOOSE YOUR ACTION</h3>
+                        <p>Select a maneuver or attack option</p>
+                    </div>
+                </div>
+                <div class="alien-side-column">
+                    <div class="alien-button-box">ATTACK</div>
+                    <div class="alien-button-box">RETREAT</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- QUOTES -->
+        <!-- ========================================== -->
+
+        <div class="cheat-section" id="section-11">
+            <div class="cheat-title">11. QUOTES</div>
+
+            <div class="cheat-code">&lt;div class="alien-quote"&gt;
+    "Get away from her, you bitch!"
+&lt;/div&gt;
+&lt;div class="alien-quote-author"&gt;— Ellen Ripley&lt;/div&gt;</div>
+
+            <div class="cheat-note">Preview:</div>
+            <div class="alien-quote">
+                "Get away from her, you bitch!"
+            </div>
+            <div class="alien-quote-author">— Ellen Ripley</div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- H1 SUB-HEADER QUOTE -->
+        <!-- ========================================== -->
+
+        <div class="cheat-section" id="section-12">
+            <div class="cheat-title">12. H1 SUB-HEADER QUOTE</div>
+            <p>Use this to add a quote below an H1 heading, styled like the chapter hero box quote. Perfect for
+                epigraphs or thematic quotes that introduce a section.</p>
+
+            <div class="cheat-code">&lt;div class="alien-h1-quote"&gt;
+    "Stay alert, stay alive."
+&lt;/div&gt;
+&lt;div class="alien-h1-quote-author"&gt;— Weyland-Yutani Training Manual&lt;/div&gt;</div>
+
+            <div class="cheat-note">
+                <strong>Note:</strong> Styled like the chapter hero box quote. The H1's bottom border serves as the top
+                line, the quote text is italic and centered, then comes another border, with the author/source below in
+                accent color. Perfect for adding thematic quotes to major sections.
+            </div>
+
+            <div class="cheat-note">Preview:</div>
+            <div style="max-width: 700px;">
+                <h1>Survival Protocols</h1>
+                <div class="alien-h1-quote">
+                    "Stay alert, stay alive."
+                </div>
+                <div class="alien-h1-quote-author">— Weyland-Yutani Training Manual</div>
+                <p>Regular content begins here after the quote...</p>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- PHASE INDICATORS -->
+        <!-- ========================================== -->
+
+        <div class="cheat-section" id="section-13">
+            <div class="cheat-title">13. PHASE INDICATORS (INLINE WITH HEADERS)</div>
+            <p>Add visual phase indicators next to headings to show progression through multi-step processes. Uses hexagonal shapes that can be filled or empty. Perfect for space combat phases, turn sequences, or any stepped procedure.</p>
+
+            <div class="cheat-code">&lt;!-- Used inline with headings --&gt;
+&lt;h2&gt;1. Command Phase
+    &lt;span class="phase-indicator"&gt;
+        &lt;span class="hex filled"&gt;&lt;/span&gt;
+        &lt;span class="hex empty"&gt;&lt;/span&gt;
+        &lt;span class="hex empty"&gt;&lt;/span&gt;
+        &lt;span class="hex empty"&gt;&lt;/span&gt;
+    &lt;/span&gt;
+&lt;/h2&gt;
+
+&lt;h2&gt;2. Sensor Phase
+    &lt;span class="phase-indicator"&gt;
+        &lt;span class="hex empty"&gt;&lt;/span&gt;
+        &lt;span class="hex filled"&gt;&lt;/span&gt;
+        &lt;span class="hex empty"&gt;&lt;/span&gt;
+        &lt;span class="hex empty"&gt;&lt;/span&gt;
+    &lt;/span&gt;
+&lt;/h2&gt;
+
+&lt;h2&gt;3. Movement Phase
+    &lt;span class="phase-indicator"&gt;
+        &lt;span class="hex empty"&gt;&lt;/span&gt;
+        &lt;span class="hex empty"&gt;&lt;/span&gt;
+        &lt;span class="hex filled"&gt;&lt;/span&gt;
+        &lt;span class="hex empty"&gt;&lt;/span&gt;
+    &lt;/span&gt;
+&lt;/h2&gt;</div>
+
+            <div class="cheat-note">
+                <strong>Note:</strong> Each <code>&lt;span class="hex"&gt;</code> creates a hexagonal shape. Use <code>class="hex filled"</code> to show the current/active phase in accent color, and <code>class="hex empty"</code> for inactive phases (just the outline). The hexagons are pure CSS with no images needed!
+            </div>
+
+            <div class="cheat-note">Preview:</div>
+            <div style="max-width: 700px;">
+                <h2>1. Command Phase
+                    <span class="phase-indicator">
+                        <span class="hex filled"></span>
+                        <span class="hex empty"></span>
+                        <span class="hex empty"></span>
+                        <span class="hex empty"></span>
+                    </span>
+                </h2>
+                <p>Issue orders to crew members and coordinate actions.</p>
+
+                <h2>2. Sensor Phase
+                    <span class="phase-indicator">
+                        <span class="hex empty"></span>
+                        <span class="hex filled"></span>
+                        <span class="hex empty"></span>
+                        <span class="hex empty"></span>
+                    </span>
+                </h2>
+                <p>Scan for threats and detect incoming hostiles.</p>
+
+                <h2>3. Movement Phase
+                    <span class="phase-indicator">
+                        <span class="hex empty"></span>
+                        <span class="hex empty"></span>
+                        <span class="hex filled"></span>
+                        <span class="hex empty"></span>
+                    </span>
+                </h2>
+                <p>Maneuver your ship and change position.</p>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- LISTS -->
+        <!-- ========================================== -->
+
+        <div class="cheat-section" id="section-14">
+            <div class="cheat-title">14. CHEVRON LISTS</div>
+
+            <div class="cheat-code">&lt;ul class="alien-chevron-list"&gt;
+    &lt;li&gt;First important point&lt;/li&gt;
+    &lt;li&gt;Second important point&lt;/li&gt;
+    &lt;li&gt;Third important point&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Remove chevron from specific items --&gt;
+&lt;ul class="alien-chevron-list"&gt;
+    &lt;li&gt;Normal item with chevron&lt;/li&gt;
+    &lt;li class="no-chevron"&gt;* Legend or note item without chevron&lt;/li&gt;
+    &lt;li&gt;Another normal item&lt;/li&gt;
+&lt;/ul&gt;</div>
+
+            <div class="cheat-note">
+                <strong>Note:</strong> Use <code>class="no-chevron"</code> on individual list items to remove the chevron symbol. Useful for legend entries, notes, or items marked with other symbols like asterisks.
+            </div>
+
+            <div class="cheat-note">Preview:</div>
+            <div style="max-width: 700px;">
+                <ul class="alien-chevron-list">
+                    <li>First important point</li>
+                    <li>Second important point</li>
+                    <li>Third important point</li>
+                </ul>
+
+                <p style="margin-top: 1em;"><strong>With no-chevron items:</strong></p>
+                <ul class="alien-chevron-list">
+                    <li>Normal item with chevron</li>
+                    <li class="no-chevron">* Legend or note item without chevron</li>
+                    <li>Another normal item</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- FLEXIBLE TWO-COLUMN LISTS -->
+        <!-- ========================================== -->
+
+        <div class="cheat-section" id="section-14b">
+            <div class="cheat-title">14b. FLEXIBLE TWO-COLUMN LISTS</div>
+            <p>Create lists where items can be displayed two per row or take up the full width. Combine with <code>alien-chevron-list</code> for styled bullets. Perfect for skill lists, equipment catalogs, or any content that benefits from compact display.</p>
+
+            <div class="cheat-code">&lt;ul class="alien-chevron-list flex"&gt;
+    &lt;li class="half"&gt;First item (50% width)&lt;/li&gt;
+    &lt;li class="half"&gt;Second item (50% width)&lt;/li&gt;
+    &lt;li class="half"&gt;Third item (50% width)&lt;/li&gt;
+    &lt;li class="half"&gt;Fourth item (50% width)&lt;/li&gt;
+    &lt;li class="full"&gt;Full width item that spans entire row&lt;/li&gt;
+    &lt;li class="half"&gt;Fifth item (50% width)&lt;/li&gt;
+    &lt;li class="half"&gt;Sixth item (50% width)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- With no-chevron for legend items --&gt;
+&lt;ul class="alien-chevron-list flex"&gt;
+    &lt;li class="half"&gt;Observation&lt;/li&gt;
+    &lt;li class="half"&gt;Survival&lt;/li&gt;
+    &lt;li class="half"&gt;Comtech&lt;/li&gt;
+    &lt;li class="half"&gt;Mobility&lt;/li&gt;
+    &lt;li class="full no-chevron"&gt;* Items marked with asterisk are advanced skills&lt;/li&gt;
+    &lt;li class="half"&gt;Close Combat&lt;/li&gt;
+    &lt;li class="half"&gt;Ranged Combat&lt;/li&gt;
+&lt;/ul&gt;</div>
+
+            <div class="cheat-note">
+                <strong>Note:</strong> Combine <code>class="alien-chevron-list flex"</code> on the <code>&lt;ul&gt;</code> to get both chevron bullets and flexible layout. Use <code>class="half"</code> for items that take 50% width (two per row) or <code>class="full"</code> for items that span the entire row. Add <code>class="no-chevron"</code> to individual items to remove the chevron (useful for legend entries).
+            </div>
+
+            <div class="cheat-note">Preview:</div>
+            <div style="max-width: 700px;">
+                <ul class="alien-chevron-list flex">
+                    <li class="half">Observation</li>
+                    <li class="half">Survival</li>
+                    <li class="half">Comtech</li>
+                    <li class="half">Mobility</li>
+                    <li class="full">Stamina - Full row for important items</li>
+                    <li class="half">Close Combat</li>
+                    <li class="half">Ranged Combat</li>
+                </ul>
+
+                <p style="margin-top: 1em;"><strong>With legend item (no-chevron):</strong></p>
+                <ul class="alien-chevron-list flex">
+                    <li class="half">Observation</li>
+                    <li class="half">Survival</li>
+                    <li class="half">Comtech</li>
+                    <li class="half">Mobility</li>
+                    <li class="full no-chevron">* Items marked with asterisk are advanced skills</li>
+                    <li class="half">Close Combat</li>
+                    <li class="half">Ranged Combat</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- HORIZONTAL NAV LIST -->
+        <!-- ========================================== -->
+
+        <div class="cheat-section" id="section-15">
+            <div class="cheat-title">15. HORIZONTAL LINKED LIST NAVIGATION</div>
+
+            <div class="cheat-code">&lt;div class="alien-nav-list"&gt;
+    &lt;div class="alien-nav-item"&gt;
+        &lt;span class="alien-nav-item-label"&gt;Observation&lt;/span&gt;
+        &lt;span class="alien-nav-item-key"&gt;O&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;span class="alien-nav-connector"&gt;--&lt;/span&gt;
+    &lt;div class="alien-nav-item"&gt;
+        &lt;span class="alien-nav-item-label"&gt;Survival&lt;/span&gt;
+        &lt;span class="alien-nav-item-key"&gt;S&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;span class="alien-nav-connector"&gt;--&lt;/span&gt;
+    &lt;div class="alien-nav-item"&gt;
+        &lt;span class="alien-nav-item-label"&gt;Combat&lt;/span&gt;
+        &lt;span class="alien-nav-item-key"&gt;C&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Optional: Add subtext below --&gt;
+&lt;div class="alien-nav-subtext"&gt;
+    &lt;div class="alien-nav-subtext-item"&gt;[O] Notice threats and opportunities&lt;/div&gt;
+    &lt;div class="alien-nav-subtext-item"&gt;[S] Endure harsh conditions&lt;/div&gt;
+    &lt;div class="alien-nav-subtext-item"&gt;[C] Fight to survive&lt;/div&gt;
+&lt;/div&gt;</div>
+
+            <div class="cheat-note">Preview:</div>
+            <div style="max-width: 700px;">
+                <div class="alien-nav-list">
+                    <div class="alien-nav-item">
+                        <span class="alien-nav-item-label">Observation</span>
+                        <span class="alien-nav-item-key">O</span>
+                    </div>
+                    <span class="alien-nav-connector">--</span>
+                    <div class="alien-nav-item">
+                        <span class="alien-nav-item-label">Survival</span>
+                        <span class="alien-nav-item-key">S</span>
+                    </div>
+                    <span class="alien-nav-connector">--</span>
+                    <div class="alien-nav-item">
+                        <span class="alien-nav-item-label">Combat</span>
+                        <span class="alien-nav-item-key">C</span>
+                    </div>
+                </div>
+                <div class="alien-nav-subtext">
+                    <div class="alien-nav-subtext-item">[O] Notice threats and opportunities</div>
+                    <div class="alien-nav-subtext-item">[S] Endure harsh conditions</div>
+                    <div class="alien-nav-subtext-item">[C] Fight to survive</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- SEQUENCE DIAGRAMS -->
+        <!-- ========================================== -->
+
+        <div class="cheat-section" id="section-16">
+            <div class="cheat-title">16. SEQUENCE DIAGRAMS</div>
+            <p>Numbered steps with a box on the left containing the step number and content on the right.</p>
+
+            <div class="cheat-code">&lt;div class="alien-sequence-diagram"&gt;
+    &lt;div class="alien-sequence-step"&gt;
+        &lt;div class="alien-sequence-number"&gt;1&lt;/div&gt;
+        &lt;div class="alien-sequence-content"&gt;
+            &lt;div class="alien-sequence-title"&gt;Detection&lt;/div&gt;
+            &lt;div class="alien-sequence-description"&gt;The motion tracker picks up movement.&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="alien-sequence-step"&gt;
+        &lt;div class="alien-sequence-number"&gt;2&lt;/div&gt;
+        &lt;div class="alien-sequence-content"&gt;
+            &lt;div class="alien-sequence-title"&gt;Investigation&lt;/div&gt;
+            &lt;div class="alien-sequence-description"&gt;The crew investigates the source.&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="alien-sequence-step"&gt;
+        &lt;div class="alien-sequence-number"&gt;3&lt;/div&gt;
+        &lt;div class="alien-sequence-content"&gt;
+            &lt;div class="alien-sequence-title"&gt;Encounter&lt;/div&gt;
+            &lt;div class="alien-sequence-description"&gt;Face to face with the alien organism.&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</div>
+
+            <div class="cheat-note">
+                <strong>Note:</strong> The number box is centered both horizontally and vertically. Supports single and double-digit numbers. The title is optional - you can use just the description if preferred.
+            </div>
+
+            <div class="cheat-note">Preview:</div>
+            <div style="max-width: 700px;">
+                <div class="alien-sequence-diagram">
+                    <div class="alien-sequence-step">
+                        <div class="alien-sequence-number">1</div>
+                        <div class="alien-sequence-content">
+                            <div class="alien-sequence-title">Detection</div>
+                            <div class="alien-sequence-description">The motion tracker picks up movement.</div>
+                        </div>
+                    </div>
+                    <div class="alien-sequence-step">
+                        <div class="alien-sequence-number">2</div>
+                        <div class="alien-sequence-content">
+                            <div class="alien-sequence-title">Investigation</div>
+                            <div class="alien-sequence-description">The crew investigates the source.</div>
+                        </div>
+                    </div>
+                    <div class="alien-sequence-step">
+                        <div class="alien-sequence-number">3</div>
+                        <div class="alien-sequence-content">
+                            <div class="alien-sequence-title">Encounter</div>
+                            <div class="alien-sequence-description">Face to face with the alien organism.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- STAT BLOCKS -->
+        <!-- ========================================== -->
+
+        <div class="cheat-section" id="section-17">
+            <div class="cheat-title">17. STAT BLOCKS (BONUS - From Original CSS)</div>
+
+            <div class="cheat-code">&lt;div class="alien-stat-block"&gt;
+    &lt;div class="alien-stat-block-title"&gt;Xenomorph&lt;/div&gt;
+    &lt;div class="alien-stat-block-subtitle"&gt;Large Alien Beast&lt;/div&gt;
+    &lt;div class="alien-stat-grid"&gt;
+        &lt;div class="alien-stat-item"&gt;
+            &lt;div class="alien-stat-label"&gt;Speed&lt;/div&gt;
+            &lt;div class="alien-stat-value"&gt;3&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="alien-stat-item"&gt;
+            &lt;div class="alien-stat-label"&gt;Health&lt;/div&gt;
+            &lt;div class="alien-stat-value"&gt;12&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="alien-stat-item"&gt;
+            &lt;div class="alien-stat-label"&gt;Armor&lt;/div&gt;
+            &lt;div class="alien-stat-value"&gt;6&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p&gt;Additional description and abilities go here.&lt;/p&gt;
+&lt;/div&gt;</div>
+
+            <div class="cheat-note">Preview:</div>
+            <div style="max-width: 700px;">
+                <div class="alien-stat-block">
+                    <div class="alien-stat-block-title">Xenomorph</div>
+                    <div class="alien-stat-block-subtitle">Large Alien Beast</div>
+                    <div class="alien-stat-grid">
+                        <div class="alien-stat-item">
+                            <div class="alien-stat-label">Speed</div>
+                            <div class="alien-stat-value">3</div>
+                        </div>
+                        <div class="alien-stat-item">
+                            <div class="alien-stat-label">Health</div>
+                            <div class="alien-stat-value">12</div>
+                        </div>
+                        <div class="alien-stat-item">
+                            <div class="alien-stat-label">Armor</div>
+                            <div class="alien-stat-value">6</div>
+                        </div>
+                    </div>
+                    <p>Additional description and abilities go here.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cheat-section" id="section-18">
+            <div class="cheat-title">18. FLOW DIAGRAM</div>
+            <p>Create process flow diagrams with boxes and arrows. Use <code>alien-flow-row</code> for horizontal flows and stack rows vertically for multi-step processes.</p>
+
+            <div class="cheat-code">&lt;div class="alien-flow-diagram"&gt;
+    &lt;!-- Row 1 --&gt;
+    &lt;div class="alien-flow-row"&gt;
+        &lt;div class="alien-flow-node"&gt;Grab dice&lt;/div&gt;
+        &lt;div class="alien-flow-arrow-right"&gt;→&lt;/div&gt;
+        &lt;div class="alien-flow-node"&gt;Modify&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Row 2: Corner arrow left and node --&gt;
+    &lt;div class="alien-flow-row"&gt;
+        &lt;div class="alien-flow-arrow-corner-left"&gt;↲&lt;/div&gt;
+        &lt;div class="alien-flow-node"&gt;Add stress&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="alien-flow-arrow-down"&gt;↓&lt;/div&gt;
+
+    &lt;!-- Row 3 --&gt;
+    &lt;div class="alien-flow-row"&gt;
+        &lt;div class="alien-flow-node"&gt;Roll dice&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="alien-flow-arrow-down"&gt;↓&lt;/div&gt;
+
+    &lt;!-- Row 4: Three outcomes with lines --&gt;
+    &lt;div class="alien-flow-row"&gt;
+        &lt;div class="alien-flow-node"&gt;Failure&lt;/div&gt;
+        &lt;div class="alien-flow-line"&gt;—&lt;/div&gt;
+        &lt;div class="alien-flow-node"&gt;Success&lt;/div&gt;
+        &lt;div class="alien-flow-line"&gt;—&lt;/div&gt;
+        &lt;div class="alien-flow-node"&gt;Panic&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</div>
+
+            <div class="cheat-note">
+                <strong>Note:</strong> Build flow diagrams by stacking rows vertically. Available connectors:
+                <ul style="margin: 0.5em 0 0 1.5em;">
+                    <li><code>alien-flow-arrow-right</code> with → for horizontal arrows (left to right)</li>
+                    <li><code>alien-flow-arrow-down</code> with ↓ for vertical arrows (top to bottom)</li>
+                    <li><code>alien-flow-arrow-corner-left</code> with ↲ for turning down and to the left</li>
+                    <li><code>alien-flow-arrow-corner-right</code> with ↳ for turning down and to the right</li>
+                    <li><code>alien-flow-line</code> with — for connecting branching outcomes</li>
+                </ul>
+                Use corner arrows to show flow turning from one node to another. Use lines (—) to connect multiple outcome boxes showing they are all results of the branching.
+            </div>
+
+            <div class="cheat-note">Preview:</div>
+            <div style="max-width: 700px;">
+                <div class="alien-info-box">
+                    <div class="alien-info-box-title">Dice Rolling Sequence</div>
+
+                    <div class="alien-flow-diagram">
+                        <!-- Row 1 -->
+                        <div class="alien-flow-row">
+                            <div class="alien-flow-node">Grab dice</div>
+                            <div class="alien-flow-arrow-right">→</div>
+                            <div class="alien-flow-node">Modify</div>
+                        </div>
+
+                        <!-- Row 2: Corner arrow left and node -->
+                        <div class="alien-flow-row">
+                            <div class="alien-flow-node">Add stress</div>
+                            <div class="alien-flow-arrow-corner-left">↲</div>
+                        </div>
+
+                        <div class="alien-flow-arrow-down">↓</div>
+
+                        <!-- Row 3 -->
+                        <div class="alien-flow-row">
+                            <div class="alien-flow-node">Roll dice</div>
+                        </div>
+
+                        <div class="alien-flow-arrow-down">↓</div>
+
+                        <!-- Row 4: Three outcomes with lines -->
+                        <div class="alien-flow-row">
+                            <div class="alien-flow-node">Failure</div>
+                            <div class="alien-flow-line">—</div>
+                            <div class="alien-flow-node">Success</div>
+                            <div class="alien-flow-line">—</div>
+                            <div class="alien-flow-node">Panic</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- FLOW DIAGRAM (MERMAID) -->
+        <!-- ========================================== -->
+
+        <div class="cheat-section" id="section-18b">
+            <div class="cheat-title">18b. FLOW DIAGRAM (MERMAID ALTERNATIVE)</div>
+            <p>Mermaid is a JavaScript library that renders diagrams from simple text definitions. More concise syntax with automatic layout.</p>
+
+            <div class="cheat-code">&lt;!-- Include Mermaid in your HTML head --&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;mermaid.initialize({ startOnLoad: true, theme: 'dark' });&lt;/script&gt;
+
+&lt;!-- Then use pre tags with class="mermaid" --&gt;
+&lt;pre class="mermaid"&gt;
+flowchart TD
+    A[Grab dice] --&gt; B[Modify]
+    B --&gt; C[Add stress]
+    C --&gt; D[Roll dice]
+    D --&gt; E[Failure]
+    D --&gt; F[Success]
+    D --&gt; G[Panic]
+&lt;/pre&gt;</div>
+
+            <div class="cheat-note">
+                <strong>Mermaid Syntax Tips:</strong>
+                <ul style="margin: 0.5em 0 0 1.5em;">
+                    <li><code>flowchart TD</code> = top-down flow (use <code>LR</code> for left-right)</li>
+                    <li><code>A[Text]</code> = rectangular node</li>
+                    <li><code>A{Text}</code> = diamond (decision) node</li>
+                    <li><code>A([Text])</code> = stadium-shaped node</li>
+                    <li><code>--&gt;</code> = arrow, <code>---</code> = line without arrow</li>
+                    <li><code>--&gt;|label|</code> = arrow with label</li>
+                </ul>
+            </div>
+
+            <div class="cheat-note" style="background: rgba(255, 100, 100, 0.1); border-left-color: #ff6b6b; color: #ff6b6b;">
+                <strong>⚠ Foundry VTT Warning:</strong> Mermaid requires JavaScript to render. Foundry VTT journal entries may restrict JS execution for security. Test compatibility before using in production. The CSS-based flow diagram (#17) is safer for Foundry use.
+            </div>
+
+            <div class="cheat-note">Preview:</div>
+            <div style="max-width: 700px;">
+                <pre class="mermaid">
+flowchart TD
+    A[Grab dice] --> B[Modify]
+    B --> C[Add stress]
+    C --> D[Roll dice]
+    D --> E[Failure]
+    D --> F[Success]
+    D --> G[Panic]
+                </pre>
+            </div>
+
+            <div class="cheat-note">Preview (Left-to-Right with Decision):</div>
+            <div style="max-width: 700px;">
+                <pre class="mermaid">
+flowchart LR
+    A[Start] --> B{Check Stress}
+    B -->|Low| C[Continue]
+    B -->|High| D[Roll Panic]
+    D --> E[Apply Effect]
+    C --> F[End Turn]
+    E --> F
+                </pre>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- WORKFLOW TIPS -->
+        <!-- ========================================== -->
+
+        <div class="cheat-section" style="background: rgba(212, 175, 55, 0.1); border-left-color: #d4af37;">
+            <div class="cheat-title" style="color: #d4af37; border-bottom-color: #d4af37;">WORKFLOW TIPS</div>
+
+            <h3>Creating Your Chapter Files:</h3>
+            <ol>
+                <li>Copy <code>chapter-template.html</code> for each chapter</li>
+                <li>Name them like: <code>01_Chapter_Title.html</code>, <code>02_Next_Chapter.html</code>, etc.</li>
+                <li>Open your PDF and this cheat sheet side-by-side</li>
+                <li>Copy text from PDF and paste into your HTML file</li>
+                <li>Wrap content with appropriate HTML elements from this cheat sheet</li>
+                <li>Update the metadata comments at the bottom (Chapter Number, Source Pages, Sort Order)</li>
+                <li>Save and preview in your web browser</li>
+            </ol>
+
+            <h3>Importing into FoundryScribe:</h3>
+            <ol>
+                <li>Place all your completed HTML files in a directory</li>
+                <li>Include the <code>alien-rpg.css</code> file in the same directory</li>
+                <li>Run FoundryScribe and select "Import from HTML"</li>
+                <li>Point it to your directory</li>
+                <li>Export to Foundry VTT JSON format</li>
+            </ol>
+
+            <h3>Best Practices:</h3>
+            <ul class="alien-chevron-list">
+                <li>Keep your HTML files numbered so they import in the correct order</li>
+                <li>Use semantic HTML - don't just wrap everything in divs</li>
+                <li>Preview frequently in a web browser to check formatting</li>
+                <li>Save your work often!</li>
+                <li>Keep the original PDF handy for reference</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <footer
+        style="text-align: center; margin-top: 4em; padding-top: 2em; border-top: 2px solid #3a5f47; color: #7fb069;">
+        <p>FoundryScribe - Alien RPG Edition</p>
+        <p style="font-size: 0.9em; color: #666;">All Alien RPG content &copy; Free League Publishing</p>
+    </footer>
+
+    <!-- Floating Navigation JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const nav = document.getElementById('floatingNav');
+            const navLinks = nav.querySelectorAll('a');
+            const sections = document.querySelectorAll('.cheat-section[id]');
+
+            // Smooth scroll for navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            // Track scroll position and highlight active section
+            function updateActiveSection() {
+                let currentSection = '';
+                const scrollPos = window.scrollY + 150; // Offset for better UX
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+
+                    if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+
+                // Remove all active classes
+                navLinks.forEach(link => link.classList.remove('active'));
+
+                // Add active class to current section
+                if (currentSection) {
+                    const activeLink = nav.querySelector(`a[href="#${currentSection}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                }
+            }
+
+            // Update on scroll
+            let ticking = false;
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    window.requestAnimationFrame(function() {
+                        updateActiveSection();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+
+            // Initial update
+            updateActiveSection();
+
+            // Navigation toggle functionality
+            const navToggle = document.getElementById('navToggle');
+            let navCollapsed = false;
+
+            navToggle.addEventListener('click', function() {
+                navCollapsed = !navCollapsed;
+
+                if (navCollapsed) {
+                    nav.classList.add('collapsed');
+                    navToggle.textContent = 'Menu';
+                } else {
+                    nav.classList.remove('collapsed');
+                    navToggle.textContent = 'Hide';
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

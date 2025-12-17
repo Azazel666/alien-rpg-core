@@ -1,0 +1,115 @@
+/* ========================================== */
+/* FLOATING SIDEBAR NAVIGATION */
+/* ========================================== */
+/* This CSS is specifically for the cheat sheet's floating navigation
+   and should not be included in general Alien RPG styling */
+
+.alien-floating-nav {
+  position: fixed;
+  top: 25px;
+  right: 20px;
+  width: 250px;
+  background: rgba(13, 31, 19, 0.95);
+  border: 2px solid var(--alien-accent);
+  border-radius: 8px;
+  padding: 1.5em;
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, right 0.3s ease;
+}
+
+.alien-floating-nav.collapsed {
+  transform: translateX(calc(100% + 20px));
+}
+
+.alien-nav-toggle {
+  position: fixed;
+  top: 25px;
+  right: 20px;
+  background: rgba(13, 31, 19, 0.95);
+  border: 2px solid var(--alien-accent);
+  border-radius: 8px;
+  padding: 0.5em 1em;
+  color: var(--alien-accent);
+  cursor: pointer;
+  z-index: 1001;
+  font-family: 'Bebas Neue', 'Oswald', impact, sans-serif;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.alien-nav-toggle:hover {
+  background: rgba(127, 176, 105, 0.2);
+  border-color: var(--alien-accent);
+}
+
+.alien-nav-toggle.hidden {
+  display: none;
+}
+
+.alien-floating-nav-title {
+  font-family: 'Bebas Neue', 'Oswald', impact, sans-serif;
+  font-size: 1.3em;
+  text-transform: uppercase;
+  color: var(--alien-accent);
+  margin-bottom: 1em;
+  padding-bottom: 0.5em;
+  border-bottom: 2px solid var(--alien-accent);
+  letter-spacing: 0.05em;
+}
+
+.alien-floating-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.alien-floating-nav li {
+  margin: 0.5em 0;
+}
+
+.alien-floating-nav a {
+  color: var(--alien-text);
+  text-decoration: none;
+  display: block;
+  padding: 0.5em 0.75em;
+  border-left: 3px solid transparent;
+  transition: all 0.2s ease;
+  font-size: 0.95em;
+}
+
+.alien-floating-nav a:hover {
+  color: var(--alien-accent);
+  border-left-color: var(--alien-accent);
+  padding-left: 1em;
+}
+
+.alien-floating-nav a.active {
+  color: var(--alien-accent);
+  border-left-color: var(--alien-accent);
+  background: rgba(127, 176, 105, 0.1);
+  font-weight: bold;
+}
+
+/* Responsive Design for Floating Nav */
+@media (max-width: 768px) {
+  /* Hide floating navigation and toggle on mobile */
+  .alien-floating-nav,
+  .alien-nav-toggle {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  /* Adjust floating nav for smaller screens */
+  .alien-floating-nav {
+    width: 200px;
+    font-size: 0.9em;
+    right: 10px;
+  }
+}

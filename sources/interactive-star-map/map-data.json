@@ -1,0 +1,324 @@
+{
+  "version": "1.0",
+  "map": "Stars of the Middle Heavens 2183",
+  "exported": "2025-12-07T22:59:24.882Z",
+  "imageBounds": [
+    [
+      0,
+      0
+    ],
+    [
+      1080,
+      1920
+    ]
+  ],
+  "pois": [
+    {
+      "code": "NN4274",
+      "name": "Unknown",
+      "type": "Star System",
+      "territory": "Frontier",
+      "coords": [
+        715.25,
+        1173.5
+      ],
+      "destinations": [
+        {
+          "name": "O'Bannon's World",
+          "type": "Moon"
+        }
+      ]
+    },
+    {
+      "code": "NN3789",
+      "name": "Unknown",
+      "type": "Star System",
+      "territory": "Frontier",
+      "coords": [
+        740.125,
+        1159.75
+      ],
+      "destinations": [
+        {
+          "name": "LK-176",
+          "type": "Colony"
+        }
+      ]
+    },
+    {
+      "code": "70 Ophiuchi AV",
+      "name": "Unknown",
+      "type": "Star System",
+      "territory": "UA",
+      "coords": [
+        637.125,
+        1137.5
+      ],
+      "destinations": [
+        {
+          "name": "Georgia 525",
+          "type": "Colony"
+        },
+        {
+          "name": "Chinok 91 Station",
+          "type": "Station"
+        }
+      ]
+    },
+    {
+      "code": "",
+      "name": "GJ1230AB",
+      "type": "Star System",
+      "territory": "Frontier",
+      "coords": [
+        748.875,
+        1145.625
+      ],
+      "destinations": [
+        {
+          "name": "Sahara",
+          "type": "Colony"
+        },
+        {
+          "name": "Grandhi",
+          "type": "Colony"
+        }
+      ]
+    },
+    {
+      "code": "GJ2005",
+      "name": "Unknown",
+      "type": "Star System",
+      "territory": "Frontier",
+      "coords": [
+        664.75,
+        1201.75
+      ],
+      "destinations": [
+        {
+          "name": "Transept",
+          "type": "Outpost"
+        }
+      ]
+    },
+    {
+      "code": "",
+      "name": "Formalhaut",
+      "type": "Star System",
+      "territory": "Frontier",
+      "coords": [
+        620.25,
+        1227.75
+      ],
+      "destinations": []
+    },
+    {
+      "code": "POL-9414",
+      "name": "Unknown",
+      "type": "Star System",
+      "territory": "Frontier",
+      "coords": [
+        583.5,
+        1243.75
+      ],
+      "destinations": [
+        {
+          "name": "Nimbus",
+          "type": "Planet"
+        }
+      ]
+    },
+    {
+      "code": "GJ1224",
+      "name": "Unknown",
+      "type": "Star System",
+      "territory": "Frontier",
+      "coords": [
+        566,
+        1244.75
+      ],
+      "destinations": [
+        {
+          "name": "Chitin",
+          "type": "Planet"
+        }
+      ]
+    },
+    {
+      "code": "GL643",
+      "name": "Unknown",
+      "type": "Star System",
+      "territory": "UPP",
+      "coords": [
+        591.25,
+        1205.5
+      ],
+      "destinations": [
+        {
+          "name": "New Kiev",
+          "type": "Planet"
+        }
+      ]
+    },
+    {
+      "code": "GL8783B",
+      "name": "Unknown",
+      "type": "Star System",
+      "territory": "ICSC",
+      "coords": [
+        549,
+        1251.25
+      ],
+      "destinations": [
+        {
+          "name": "Aerodyne",
+          "type": "Planet"
+        }
+      ]
+    },
+    {
+      "code": "GJ2066",
+      "name": "Anchorpoint II",
+      "type": "Star System",
+      "territory": "Frontier",
+      "coords": [
+        327,
+        703.5
+      ],
+      "destinations": [
+        {
+          "name": "Anchorpoint Station",
+          "type": "Station"
+        }
+      ]
+    },
+    {
+      "code": "",
+      "name": "Alpha Fornacis",
+      "type": "Star System",
+      "territory": "Neutral",
+      "coords": [
+        210,
+        609.5
+      ],
+      "destinations": [
+        {
+          "name": "Novgorod Station",
+          "type": "Station"
+        }
+      ]
+    },
+    {
+      "code": "LV-666",
+      "name": "Lambda Serpentis",
+      "type": "Star System",
+      "territory": "UA",
+      "coords": [
+        619.625,
+        1285.875
+      ],
+      "destinations": [
+        {
+          "name": "Lambda Serpentis II",
+          "type": "Planet"
+        }
+      ]
+    },
+    {
+      "code": "GL382",
+      "name": "",
+      "type": "Star System",
+      "territory": "Frontier",
+      "coords": [
+        288.5,
+        867
+      ],
+      "destinations": [
+        {
+          "name": "Temple",
+          "type": "Planet"
+        }
+      ]
+    },
+    {
+      "code": "GL902",
+      "name": "",
+      "type": "Star System",
+      "territory": "Frontier",
+      "coords": [
+        260.5,
+        1241.5
+      ],
+      "destinations": [
+        {
+          "name": "Twilight",
+          "type": "Planet"
+        }
+      ]
+    },
+    {
+      "code": "GL408",
+      "name": "",
+      "type": "Star System",
+      "territory": "Frontier",
+      "coords": [
+        378.75,
+        795.5
+      ],
+      "destinations": [
+        {
+          "name": "Liberty Echo",
+          "type": "Outpost"
+        }
+      ]
+    },
+    {
+      "code": "GL300",
+      "name": "Alpha Linna",
+      "type": "Star System",
+      "territory": "TWE",
+      "coords": [
+        361.5,
+        844.25
+      ],
+      "destinations": [
+        {
+          "name": "Linna 349",
+          "type": "Colony"
+        }
+      ]
+    },
+    {
+      "code": "GJ11038",
+      "name": "",
+      "type": "Star System",
+      "territory": "UA",
+      "coords": [
+        361.5,
+        755.25
+      ],
+      "destinations": [
+        {
+          "name": "Deadfall",
+          "type": "Planet"
+        }
+      ]
+    },
+    {
+      "code": "",
+      "name": "61 Cygni",
+      "type": "Star System",
+      "territory": "UPP",
+      "coords": [
+        657,
+        980.5
+      ],
+      "destinations": [
+        {
+          "name": "LV-038",
+          "type": "Colony"
+        }
+      ]
+    }
+  ]
+}

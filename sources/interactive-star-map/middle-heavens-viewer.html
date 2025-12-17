@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Middle Heavens Map - Viewer</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #000;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        #map {
+            height: 100vh;
+            width: 100vw;
+            background: #000;
+        }
+
+        .control-panel {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(10, 10, 20, 0.95);
+            border: 2px solid #00ff88;
+            border-radius: 8px;
+            padding: 15px;
+            z-index: 1000;
+            min-width: 280px;
+            max-width: 320px;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .control-panel h2 {
+            color: #00ff88;
+            margin-bottom: 15px;
+            font-size: 18px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #00ff88;
+            padding-bottom: 8px;
+        }
+
+        .search-box {
+            margin-bottom: 15px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #00ff88;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #00ffaa;
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+        }
+
+        .search-box input::placeholder {
+            color: #666;
+        }
+
+        .filter-section {
+            margin-bottom: 15px;
+        }
+
+        .filter-section h3 {
+            color: #88ffaa;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .filter-checkbox {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 3px;
+            transition: background 0.2s;
+        }
+
+        .filter-checkbox:hover {
+            background: rgba(0, 255, 136, 0.1);
+        }
+
+        .filter-checkbox input {
+            margin-right: 10px;
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+        }
+
+        .filter-checkbox label {
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+
+        .territory-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .type-filter {
+            margin-top: 15px;
+        }
+
+        .type-filter select {
+            width: 100%;
+            padding: 8px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #00ff88;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .type-filter select:focus {
+            outline: none;
+            border-color: #00ffaa;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px 15px;
+            margin: 5px 0;
+            border: 2px solid #00ff88;
+            background: rgba(0, 255, 136, 0.1);
+            color: #00ff88;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+
+        .btn:hover {
+            background: rgba(0, 255, 136, 0.3);
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+        }
+
+        .poi-count {
+            font-size: 14px;
+            color: #88ffaa;
+            margin: 15px 0;
+            text-align: center;
+            padding: 10px;
+            background: rgba(0, 255, 136, 0.1);
+            border-radius: 5px;
+        }
+
+        .section {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(0, 255, 136, 0.3);
+        }
+
+        /* Legend */
+        .legend {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(10, 10, 20, 0.95);
+            border: 2px solid #00ff88;
+            border-radius: 8px;
+            padding: 15px;
+            z-index: 1000;
+            max-width: 300px;
+        }
+
+        .legend h3 {
+            color: #00ff88;
+            margin-bottom: 10px;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 6px 0;
+            font-size: 12px;
+        }
+
+        .legend-color {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            margin-right: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        /* Custom popup styling */
+        .leaflet-popup-content-wrapper {
+            background: rgba(10, 10, 20, 0.98);
+            border: 2px solid #00ff88;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        .leaflet-popup-content {
+            margin: 15px;
+            min-width: 220px;
+        }
+
+        .leaflet-popup-content h3 {
+            color: #00ffff;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .leaflet-popup-tip {
+            background: rgba(10, 10, 20, 0.98);
+            border: 2px solid #00ff88;
+        }
+
+        .popup-info {
+            margin: 6px 0;
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .popup-label {
+            color: #888;
+            font-size: 11px;
+            text-transform: uppercase;
+            min-width: 70px;
+        }
+
+        .popup-value {
+            color: #88ffaa;
+            text-align: right;
+            flex: 1;
+        }
+
+        .popup-divider {
+            height: 1px;
+            background: rgba(0, 255, 136, 0.3);
+            margin: 8px 0;
+        }
+
+        .status-message {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .status-message.success {
+            background: rgba(0, 255, 136, 0.2);
+            border: 1px solid #00ff88;
+            color: #00ff88;
+        }
+
+        .status-message.error {
+            background: rgba(255, 68, 68, 0.2);
+            border: 1px solid #ff4444;
+            color: #ff4444;
+        }
+
+        .status-message.info {
+            background: rgba(0, 136, 255, 0.2);
+            border: 1px solid #0088ff;
+            color: #88aaff;
+        }
+
+        small {
+            display: block;
+            margin-top: 10px;
+            color: #666;
+            font-size: 11px;
+            line-height: 1.4;
+        }
+
+        /* Scrollbar styling */
+        .control-panel::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .control-panel::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+        }
+
+        .control-panel::-webkit-scrollbar-thumb {
+            background: #00ff88;
+            border-radius: 4px;
+        }
+
+        .upload-prompt {
+            text-align: center;
+            padding: 20px;
+            margin: 20px 0;
+            background: rgba(0, 136, 255, 0.1);
+            border: 2px dashed #0088ff;
+            border-radius: 8px;
+            color: #88aaff;
+        }
+
+        .upload-prompt h3 {
+            color: #0088ff;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    
+    <div class="control-panel">
+        <h2>🗺️ Middle Heavens</h2>
+        
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search by code or name...">
+        </div>
+
+        <div class="filter-section">
+            <h3>Territory Filter</h3>
+            <div class="filter-checkbox">
+                <input type="checkbox" id="upp" checked>
+                <label for="upp">
+                    <div class="territory-color" style="background: #CD853F;"></div>
+                    Union of Progressive Peoples
+                </label>
+            </div>
+            <div class="filter-checkbox">
+                <input type="checkbox" id="twe" checked>
+                <label for="twe">
+                    <div class="territory-color" style="background: #3CB371;"></div>
+                    Three World Empire
+                </label>
+            </div>
+            <div class="filter-checkbox">
+                <input type="checkbox" id="icsc" checked>
+                <label for="icsc">
+                    <div class="territory-color" style="background: #9ACD32;"></div>
+                    Independent Core Systems
+                </label>
+            </div>
+            <div class="filter-checkbox">
+                <input type="checkbox" id="ua" checked>
+                <label for="ua">
+                    <div class="territory-color" style="background: #4169E1;"></div>
+                    United Americas
+                </label>
+            </div>
+            <div class="filter-checkbox">
+                <input type="checkbox" id="frontier" checked>
+                <label for="frontier">
+                    <div class="territory-color" style="background: #BA55D3;"></div>
+                    Frontier
+                </label>
+            </div>
+            <div class="filter-checkbox">
+                <input type="checkbox" id="neutral" checked>
+                <label for="neutral">
+                    <div class="territory-color" style="background: #888888;"></div>
+                    Neutral/Unclaimed
+                </label>
+            </div>
+        </div>
+
+        <div class="type-filter">
+            <h3>Type Filter</h3>
+            <select id="typeFilter">
+                <option value="">All Types</option>
+            </select>
+        </div>
+
+        <div class="poi-count">
+            Showing: <span id="visibleCount">0</span> / <span id="totalCount">0</span>
+        </div>
+
+        <div id="statusMessage"></div>
+
+        <div id="uploadPrompt" class="upload-prompt" style="display: none;">
+            <h3>No Data Loaded</h3>
+            <p>Place map-data.json in the same folder and refresh</p>
+        </div>
+
+        <small>
+            Auto-loads map-data.json from same folder. Click markers for details.
+        </small>
+    </div>
+
+    <div class="legend">
+        <h3>Territories</h3>
+        <div class="legend-item">
+            <div class="legend-color" style="background: #CD853F;"></div>
+            <span>Union of Progressive Peoples</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background: #3CB371;"></div>
+            <span>Three World Empire</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background: #9ACD32;"></div>
+            <span>Independent Core Systems</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background: #4169E1;"></div>
+            <span>United Americas</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background: #BA55D3;"></div>
+            <span>Frontier</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background: #888888;"></div>
+            <span>Neutral/Unclaimed</span>
+        </div>
+    </div>
+
+    <script>
+        // Initialize map
+        const map = L.map('map', {
+            crs: L.CRS.Simple,
+            minZoom: -1,
+            maxZoom: 3,
+            zoomControl: true,
+            attributionControl: false
+        });
+
+        // Image dimensions and bounds
+        const imageWidth = 1920;
+        const imageHeight = 1080;
+        const bounds = [[0, 0], [imageHeight, imageWidth]];
+
+        // Load the star map image
+        const imageUrl = 'Stars_Of_The_Middle_Heavens_2183.jpg';
+        L.imageOverlay(imageUrl, bounds).addTo(map);
+        map.fitBounds(bounds);
+        map.setView([imageHeight / 2, imageWidth / 2], 0);
+
+        // Territory colors
+        const territoryColors = {
+            'UPP': '#CD853F',
+            'TWE': '#3CB371',
+            'ICSC': '#9ACD32',
+            'UA': '#4169E1',
+            'Frontier': '#BA55D3',
+            'Neutral': '#888888'
+        };
+
+        const territoryNames = {
+            'UPP': 'Union of Progressive Peoples',
+            'TWE': 'Three World Empire',
+            'ICSC': 'Independent Core System Colonies',
+            'UA': 'United Americas',
+            'Frontier': 'Frontier',
+            'Neutral': 'Neutral/Unclaimed'
+        };
+
+        // State
+        let allPois = [];
+        let markers = [];
+        let availableTypes = new Set();
+
+        // Create custom icon
+        function createCustomIcon(color, size = 12) {
+            return L.divIcon({
+                className: 'custom-icon',
+                html: `<div style="width: ${size}px; height: ${size}px; background: ${color}; border: 2px solid rgba(255, 255, 255, 0.9); border-radius: 50%; box-shadow: 0 0 12px ${color};"></div>`,
+                iconSize: [size + 4, size + 4],
+                iconAnchor: [size / 2 + 2, size / 2 + 2],
+                popupAnchor: [0, -size / 2 - 2]
+            });
+        }
+
+        // Show status message
+        function showStatus(message, type) {
+            const statusEl = document.getElementById('statusMessage');
+            statusEl.textContent = message;
+            statusEl.className = `status-message ${type}`;
+            
+            setTimeout(() => {
+                statusEl.textContent = '';
+                statusEl.className = '';
+            }, 3000);
+        }
+
+        // Update type filter dropdown
+        function updateTypeFilter() {
+            const typeSelect = document.getElementById('typeFilter');
+            const currentValue = typeSelect.value;
+            
+            typeSelect.innerHTML = '<option value="">All Types</option>';
+            
+            const sortedTypes = Array.from(availableTypes).sort();
+            sortedTypes.forEach(type => {
+                const option = document.createElement('option');
+                option.value = type;
+                option.textContent = type;
+                typeSelect.appendChild(option);
+            });
+            
+            typeSelect.value = currentValue;
+        }
+
+        // Render markers with filters
+        function renderMarkers() {
+            // Clear existing markers
+            markers.forEach(marker => map.removeLayer(marker));
+            markers = [];
+
+            // Get active filters
+            const activeFilters = {
+                'UPP': document.getElementById('upp').checked,
+                'TWE': document.getElementById('twe').checked,
+                'ICSC': document.getElementById('icsc').checked,
+                'UA': document.getElementById('ua').checked,
+                'Frontier': document.getElementById('frontier').checked,
+                'Neutral': document.getElementById('neutral').checked
+            };
+
+            // Get search and type filter
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const typeFilter = document.getElementById('typeFilter').value;
+
+            // Filter POIs
+            const filteredPois = allPois.filter(poi => {
+                const matchesTerritory = activeFilters[poi.territory];
+                const matchesSearch = !searchTerm || 
+                    (poi.name && poi.name.toLowerCase().includes(searchTerm)) ||
+                    (poi.code && poi.code.toLowerCase().includes(searchTerm));
+                const matchesType = !typeFilter || poi.type === typeFilter;
+                
+                return matchesTerritory && matchesSearch && matchesType;
+            });
+
+            // Add markers
+            filteredPois.forEach(poi => {
+                const color = territoryColors[poi.territory] || '#888888';
+                const hasDestinations = poi.destinations && poi.destinations.length > 0;
+                const marker = L.marker(poi.coords, {
+                    icon: createCustomIcon(color, hasDestinations ? 16 : 12)
+                }).addTo(map);
+
+                let destinationsHTML = '';
+                if (hasDestinations) {
+                    destinationsHTML = `
+                        <div class="popup-divider"></div>
+                        <div style="margin-top: 8px;">
+                            <div class="popup-label" style="margin-bottom: 6px;">Destinations (${poi.destinations.length}):</div>
+                            ${poi.destinations.map(dest => `
+                                <div style="margin: 4px 0; padding: 5px 8px; background: rgba(0, 255, 136, 0.1); border-radius: 3px; display: flex; justify-content: space-between; align-items: center;">
+                                    <span style="color: #00ffff; font-size: 12px; font-weight: bold;">${dest.name}</span>
+                                    <span style="color: #888; font-size: 10px;">${dest.type}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                }
+
+                const displayName = poi.name || poi.code || 'Unknown';
+
+                const popupContent = `
+                    <h3>${displayName}</h3>
+                    <div class="popup-divider"></div>
+                    ${poi.code && poi.name ? `<div class="popup-info">
+                        <span class="popup-label">Code:</span>
+                        <span class="popup-value">${poi.code}</span>
+                    </div>` : ''}
+                    <div class="popup-info">
+                        <span class="popup-label">Type:</span>
+                        <span class="popup-value">${poi.type}</span>
+                    </div>
+                    <div class="popup-info">
+                        <span class="popup-label">Territory:</span>
+                        <span class="popup-value">${territoryNames[poi.territory]}</span>
+                    </div>
+                    ${destinationsHTML}
+                `;
+
+                marker.bindPopup(popupContent, { maxWidth: 300 });
+                markers.push(marker);
+            });
+
+            // Update counts
+            document.getElementById('visibleCount').textContent = filteredPois.length;
+            document.getElementById('totalCount').textContent = allPois.length;
+        }
+
+        // Load POI data from JSON
+        function loadPoisFromJson(data) {
+            try {
+                if (!data.pois || !Array.isArray(data.pois)) {
+                    throw new Error('Invalid POI data format');
+                }
+
+                allPois = data.pois.map((poi, index) => ({
+                    id: index,
+                    code: poi.code || '',
+                    name: poi.name || 'Unknown',
+                    type: poi.type || 'Other',
+                    territory: poi.territory || 'Neutral',
+                    coords: poi.coords || [540, 960],
+                    destinations: poi.destinations || []
+                }));
+
+                // Extract all unique types
+                availableTypes = new Set(allPois.map(poi => poi.type));
+                
+                // Update type filter
+                updateTypeFilter();
+
+                // Hide upload prompt
+                document.getElementById('uploadPrompt').style.display = 'none';
+
+                renderMarkers();
+                showStatus(`Loaded ${allPois.length} POIs successfully!`, 'success');
+            } catch (error) {
+                showStatus('Error loading data: ' + error.message, 'error');
+            }
+        }
+
+        // Event listeners
+        document.querySelectorAll('.filter-checkbox input').forEach(checkbox => {
+            checkbox.addEventListener('change', renderMarkers);
+        });
+
+        document.getElementById('searchInput').addEventListener('input', renderMarkers);
+        document.getElementById('typeFilter').addEventListener('change', renderMarkers);
+
+        // Auto-load map-data.json on startup
+        function autoLoadMapData() {
+            fetch('map-data.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('map-data.json not found');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    loadPoisFromJson(data);
+                    showStatus('Loaded map-data.json', 'success');
+                })
+                .catch(error => {
+                    console.log('Could not auto-load map-data.json:', error.message);
+                    document.getElementById('uploadPrompt').style.display = 'block';
+                    showStatus('map-data.json not found. Place file in same folder and refresh.', 'info');
+                });
+        }
+
+        // Auto-load on page load
+        autoLoadMapData();
+
+        console.log('Middle Heavens Map Viewer ready!');
+    </script>
+</body>
+</html>

@@ -1,0 +1,1370 @@
+/* Alien RPG - Foundry VTT Journal Styles */
+/* This CSS is designed to be used in Foundry VTT modules for Alien RPG content */
+
+:root {
+  --alien-primary: #1a472a;
+  --alien-secondary: #2d5f3f;
+  --alien-accent: #7fb069;
+  --alien-danger: #8b0000;
+  --alien-warning: #d4af37;
+  --alien-text: #e0e0e0;
+  --alien-text-dark: #1a1a1a;
+  --alien-bg: #0d1f13;
+  --alien-bg-light: #f5f5f5;
+  --alien-border: #3a5f47;
+  --alien-green-text: #4a9b5f;
+}
+
+/* Base Typography */
+.alien-content {
+  font-family: 'OCR-A', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  color: var(--alien-text);
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.alien-content h1,
+.alien-content h2,
+.alien-content h3,
+.alien-content h4,
+.alien-content h5,
+.alien-content h6 {
+  font-family: 'Changa', 'Oswald', impact, sans-serif;
+  color: var(--alien-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.alien-content h1 {
+  font-size: 2.5em;
+  border-bottom: 8px solid var(--alien-accent);
+}
+
+.alien-content h2 {
+  font-size: 2em;
+  border-bottom: 2px solid var(--alien-border);
+}
+
+.alien-content h3 {
+  display: block;
+  font-size: 1.3em;
+  color: var(--alien-green-text);
+  font-weight: bold;
+  text-transform: none;
+  letter-spacing: normal;
+  margin: 0;
+  border: none;
+}
+
+.alien-content p + h3 {
+  display: inline;
+}
+
+.alien-content h4 {
+  font-size: 1.2em;
+}
+
+/* Pre-header for H1 - smaller header above the main H1 */
+.alien-h1-pre-header {
+  font-family: 'Bebas Neue', 'Oswald', impact, sans-serif;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  color: rgba(127, 176, 105, 0.7);
+  margin-top: 1.5em;
+  letter-spacing: 0.1em;
+  font-weight: normal;
+}
+
+/* When followed by h1, reduce h1's top margin */
+.alien-h1-pre-header+h1 {
+  margin-top: 0;
+}
+
+.alien-content h2 sub {
+  vertical-align: middle;
+  font-size: 0.7em;
+}
+
+.alien-content p {
+  margin-bottom: 1em;
+}
+
+/* Indented paragraph with underlined first word */
+.alien-indent-underline-first::first-line {
+  text-indent: 2em;
+}
+
+.alien-indent-underline-first::first-letter {
+  margin-left: 2em;
+}
+
+/* Alternative implementation using a wrapper span for the first word */
+p.alien-indent-paragraph {
+  text-indent: 2em;
+  margin-bottom: 1em;
+}
+
+p.alien-indent-paragraph .first-word {
+  text-decoration: underline;
+  text-decoration-color: var(--alien-accent);
+  text-underline-offset: 3px;
+}
+
+/* Stat Blocks - Creature/NPC Statistics */
+.alien-stat-block {
+  background: linear-gradient(135deg, var(--alien-bg) 0%, var(--alien-primary) 100%);
+  border: 2px solid var(--alien-border);
+  border-left: 5px solid var(--alien-danger);
+  padding: 1.5em;
+  margin: 1.5em 0;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+.alien-stat-block-title {
+  font-family: 'Bebas Neue', 'Oswald', impact, sans-serif;
+  font-size: 1.8em;
+  color: var(--alien-accent);
+  text-transform: uppercase;
+  margin-bottom: 0.5em;
+  border-bottom: 2px solid var(--alien-danger);
+  padding-bottom: 0.3em;
+}
+
+.alien-stat-block-subtitle {
+  font-style: italic;
+  color: var(--alien-warning);
+  margin-bottom: 1em;
+  font-size: 0.9em;
+}
+
+.alien-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 0.75em;
+  margin: 1em 0;
+}
+
+.alien-stat-item {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.5em;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.alien-stat-label {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  color: var(--alien-accent);
+  letter-spacing: 0.05em;
+}
+
+.alien-stat-value {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--alien-text);
+}
+
+/* Callout Boxes - Rules Clarifications, Tips */
+.alien-callout {
+  background: rgba(127, 176, 105, 0.1);
+  border: 1px solid var(--alien-accent);
+  border-left: 4px solid var(--alien-accent);
+  padding: 1em 1.5em;
+  margin: 1.5em 0;
+  border-radius: 4px;
+}
+
+.alien-callout-title {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--alien-accent);
+  font-size: 1.1em;
+  margin-bottom: 0.5em;
+  letter-spacing: 0.05em;
+}
+
+.alien-callout.warning {
+  background: rgba(212, 175, 55, 0.1);
+  border-color: var(--alien-warning);
+  border-left-color: var(--alien-warning);
+}
+
+.alien-callout.warning .alien-callout-title {
+  color: var(--alien-warning);
+}
+
+.alien-callout.danger {
+  background: rgba(139, 0, 0, 0.15);
+  border-color: var(--alien-danger);
+  border-left-color: var(--alien-danger);
+}
+
+.alien-callout.danger .alien-callout-title {
+  color: var(--alien-danger);
+}
+
+/* Sidebars - Supplementary Information */
+.alien-sidebar {
+  background: var(--alien-primary);
+  border: 2px solid var(--alien-border);
+  padding: 1.5em;
+  margin: 1.5em 0;
+  border-radius: 4px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.alien-sidebar-title {
+  font-family: 'Bebas Neue', 'Oswald', impact, sans-serif;
+  font-size: 1.4em;
+  color: var(--alien-accent);
+  text-transform: uppercase;
+  margin-bottom: 0.75em;
+  border-bottom: 1px solid var(--alien-border);
+  padding-bottom: 0.3em;
+}
+
+/* Read-Aloud Text - Descriptive Narrative for GMs */
+.alien-read-aloud {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2));
+  border-left: 5px solid var(--alien-accent);
+  padding: 1em 1.5em;
+  margin: 1.5em 0;
+  font-style: italic;
+  color: var(--alien-text);
+  position: relative;
+}
+
+.alien-read-aloud::before {
+  content: '\201C';
+  font-size: 4em;
+  position: absolute;
+  left: 0.2em;
+  top: -0.1em;
+  color: var(--alien-accent);
+  opacity: 0.3;
+  font-family: Georgia, serif;
+}
+
+.alien-read-aloud p:last-child {
+  margin-bottom: 0;
+}
+
+/* Tables */
+.alien-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  background: var(--alien-bg);
+  border: 1px solid var(--alien-border);
+}
+
+.alien-table thead {
+  background: var(--alien-primary);
+}
+
+.alien-table th {
+  font-family: 'Bebas Neue', 'Oswald', impact, sans-serif;
+  text-transform: uppercase;
+  color: var(--alien-accent);
+  padding: 0.75em;
+  text-align: left;
+  border-bottom: 2px solid var(--alien-border);
+  letter-spacing: 0.05em;
+}
+
+.alien-table td {
+  padding: 0.75em;
+  border-bottom: 1px solid var(--alien-border);
+}
+
+.alien-table tbody tr:hover {
+  background: rgba(127, 176, 105, 0.1);
+}
+
+.alien-table tbody tr:nth-child(even) {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Lists */
+.alien-content ul,
+.alien-content ol {
+  margin: 1em 0;
+  padding-left: 2em;
+}
+
+.alien-content li {
+  margin-bottom: 0.5em;
+}
+
+.alien-content li p {
+  display: inline;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  unicode-bidi: isolate;
+}
+
+.alien-content li p.alien-indent-paragraph {
+  margin-top: 0px;
+  display: inline-block;
+  text-indent: 2em;
+}
+
+.alien-content ul li::marker {
+  color: var(--alien-accent);
+}
+
+/* Dice Rolls and Game Mechanics */
+.alien-dice {
+  display: inline-block;
+  background: var(--alien-danger);
+  color: white;
+  padding: 0.2em 0.5em;
+  border-radius: 3px;
+  font-weight: bold;
+  font-family: monospace;
+  margin: 0 0.2em;
+}
+
+.alien-stress-die {
+  background: var(--alien-warning);
+  color: black;
+}
+
+/* Icons - Inline SVG */
+.alien-dice-success {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  vertical-align: middle;
+  margin: 0 0.2em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M0 0 C0.99 -0 0.99 -0 2 -0.01 C4.2 -0.01 6.39 -0.01 8.59 -0.01 C10.17 -0.01 11.75 -0.02 13.33 -0.02 C17.62 -0.03 21.9 -0.03 26.19 -0.03 C28.87 -0.03 31.55 -0.04 34.23 -0.04 C43.59 -0.05 52.95 -0.05 62.31 -0.05 C71.02 -0.05 79.73 -0.06 88.44 -0.08 C95.93 -0.09 103.42 -0.1 110.92 -0.1 C115.38 -0.09 119.85 -0.1 124.32 -0.11 C128.53 -0.12 132.73 -0.12 136.94 -0.11 C138.47 -0.11 140.01 -0.11 141.55 -0.12 C159.73 -0.19 174.84 2.88 188.2 16.13 C199.44 29.45 201.5 43.19 201.47 60.11 C201.47 61.72 201.48 63.33 201.49 64.93 C201.5 69.28 201.5 73.62 201.5 77.97 C201.5 81.61 201.5 85.25 201.51 88.88 C201.52 97.47 201.52 106.06 201.51 114.65 C201.51 123.48 201.52 132.32 201.54 141.16 C201.56 148.76 201.56 156.37 201.56 163.98 C201.56 168.51 201.56 173.05 201.57 177.58 C201.59 181.85 201.58 186.12 201.57 190.38 C201.57 191.94 201.57 193.5 201.58 195.06 C201.67 212.22 198.58 226.19 186.51 238.88 C172.49 252.54 155.71 254.44 136.86 254.41 C135.36 254.41 133.85 254.42 132.35 254.42 C128.3 254.44 124.25 254.44 120.21 254.44 C116.81 254.43 113.41 254.44 110.02 254.44 C101.99 254.45 93.97 254.46 85.95 254.45 C77.71 254.44 69.47 254.46 61.24 254.48 C54.13 254.49 47.02 254.5 39.91 254.5 C35.68 254.5 31.45 254.5 27.23 254.51 C23.24 254.52 19.26 254.52 15.28 254.51 C13.83 254.51 12.38 254.51 10.93 254.52 C-8.05 254.62 -24.67 251.67 -38.8 238.13 C-47.16 228.5 -51.91 216.95 -51.94 204.23 C-51.95 203.55 -51.95 202.86 -51.95 202.16 C-51.96 199.88 -51.96 197.6 -51.97 195.32 C-51.97 193.68 -51.98 192.04 -51.98 190.4 C-51.99 185.96 -52 181.51 -52 177.06 C-52.01 174.28 -52.01 171.5 -52.02 168.72 C-52.03 160.01 -52.04 151.3 -52.04 142.59 C-52.05 132.55 -52.07 122.51 -52.09 112.47 C-52.12 104.7 -52.13 96.93 -52.13 89.16 C-52.13 84.53 -52.13 79.89 -52.15 75.26 C-52.17 70.89 -52.17 66.53 -52.16 62.16 C-52.16 60.57 -52.17 58.97 -52.18 57.38 C-52.28 40.04 -48.7 26.44 -36.48 13.61 C-26.49 4.34 -13.48 0.02 0 0 Z M-34.43 28.14 C-41.35 38.31 -41.22 49.48 -41.1 61.3 C-41.09 62.94 -41.09 64.59 -41.08 66.23 C-41.07 70.53 -41.04 74.83 -41.01 79.12 C-40.98 83.52 -40.97 87.92 -40.95 92.32 C-40.92 100.92 -40.87 109.53 -40.8 118.13 C-17.37 121.89 10.06 125.53 30.65 111.23 C35.74 107.49 40.36 103.34 44.82 98.88 C45.31 98.39 45.8 97.9 46.31 97.39 C61.93 81.47 67.79 65.52 67.66 43.34 C67.48 32.88 66.63 22.5 65.2 12.13 C55.49 12.02 45.79 11.93 36.09 11.87 C31.58 11.85 27.08 11.81 22.57 11.76 C18.21 11.7 13.86 11.67 9.5 11.66 C7.85 11.65 6.19 11.63 4.54 11.61 C-11.72 11.35 -23.78 14.99 -34.43 28.14 Z M83.2 12.13 C79.3 35.81 75.79 63.08 90.32 83.81 C102.43 100.18 119.39 117.21 140.24 120.43 C156.23 122.46 173.48 121.49 189.2 118.13 C191.04 116.29 190.33 113.31 190.34 110.84 C190.34 110.19 190.35 109.53 190.35 108.85 C190.36 106.67 190.36 104.48 190.36 102.29 C190.37 100.77 190.37 99.25 190.37 97.73 C190.38 94.53 190.38 91.33 190.38 88.13 C190.38 84.05 190.39 79.97 190.41 75.89 C190.42 72.74 190.42 69.59 190.42 66.44 C190.43 64.94 190.43 63.44 190.44 61.94 C190.51 46.64 189.03 33.6 178.22 21.95 C170.46 14.96 161.83 11.8 151.42 11.91 C150.31 11.91 150.31 11.91 149.18 11.91 C146.75 11.91 144.32 11.92 141.89 11.94 C140.19 11.94 138.5 11.94 136.81 11.95 C132.36 11.95 127.92 11.97 123.48 12 C118.95 12.02 114.41 12.03 109.87 12.04 C100.98 12.06 92.09 12.09 83.2 12.13 Z M-40.8 136.13 C-40.9 145.59 -40.97 155.05 -41.01 164.51 C-41.03 168.9 -41.06 173.29 -41.11 177.69 C-41.15 181.93 -41.17 186.18 -41.18 190.43 C-41.19 192.04 -41.21 193.65 -41.23 195.27 C-41.4 208.42 -39.62 219.77 -30.8 230.13 C-22.42 238.13 -13.18 242.27 -1.65 242.25 C-0.94 242.25 -0.22 242.25 0.51 242.25 C2.86 242.25 5.21 242.24 7.55 242.23 C9.19 242.23 10.82 242.23 12.45 242.23 C16.74 242.22 21.02 242.21 25.31 242.2 C29.69 242.19 34.06 242.19 38.44 242.18 C47.03 242.17 55.61 242.15 64.2 242.13 C67.93 218.41 71.72 190.43 57.26 169.58 C53.52 164.48 49.36 159.85 44.88 155.38 C44.39 154.89 43.9 154.4 43.39 153.89 C28.18 139 13.11 132.87 -8.16 133.05 C-19.11 133.3 -29.99 134.4 -40.8 136.13 Z M115.94 150.99 C111.59 156.32 106.26 160.26 100.38 163.77 C91.97 169.69 84.62 175.85 82.56 186.38 C80.41 204.75 81.83 223.76 83.2 242.13 C92.78 242.23 102.37 242.3 111.96 242.34 C116.42 242.36 120.87 242.39 125.32 242.44 C129.63 242.48 133.93 242.5 138.24 242.51 C139.87 242.52 141.51 242.53 143.14 242.56 C157.74 242.74 168.54 240.41 179.32 230.1 C188.02 221.02 190.32 211.41 190.33 199.02 C190.33 198.35 190.33 197.68 190.33 196.98 C190.33 194.79 190.33 192.59 190.33 190.39 C190.33 188.86 190.33 187.32 190.33 185.79 C190.33 182.59 190.33 179.38 190.33 176.18 C190.32 172.07 190.32 167.96 190.33 163.84 C190.33 160.68 190.33 157.52 190.33 154.36 C190.33 152.84 190.33 151.32 190.33 149.8 C190.33 147.69 190.33 145.58 190.33 143.47 C190.32 142.27 190.32 141.07 190.32 139.83 C190.5 137.22 190.5 137.22 189.2 136.13 C181.95 135.36 174.59 135.33 167.31 135.17 C163.93 135.09 160.57 134.98 157.2 134.8 C138.13 133.8 127.78 135.48 115.94 150.99 Z' fill='%237fb069' transform='translate(53.80438232421875,0.8662872314453125)'/%3E%3C/svg%3E");
+}
+
+.alien-dice-stress-failure {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  vertical-align: middle;
+  margin: 0 0.2em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M0 0 C24.26 24.51 36.6 57.21 36.49 91.57 C36.02 121.57 24.61 151.52 4.31 173.75 C3.32 174.41 2.33 175.07 1.31 175.75 C2.7 172.73 4.42 170.04 6.28 167.29 C20.72 145.75 27.74 122.49 27.62 96.56 C27.62 95.88 27.62 95.2 27.62 94.49 C27.57 83.95 27.07 73.96 24.31 63.75 C24.12 63 23.93 62.26 23.73 61.49 C16.04 32.55 -1.95 7.4 -27.69 -8.25 C-36.22 -13.11 -45.23 -17.55 -54.69 -20.25 C-55.72 -20.55 -56.76 -20.85 -57.83 -21.15 C-89.21 -28.52 -123.95 -22.77 -151.31 -5.95 C-176.3 10.31 -194.15 35.96 -200.6 65.1 C-205.97 94.44 -200.2 123.61 -183.92 148.45 C-166.07 173.93 -142.15 188.39 -111.66 194.23 C-95.19 197.24 -95.19 197.24 -79.69 192.75 C-77.45 189.98 -77.45 189.98 -77.62 187.06 C-79.9 179.97 -84.84 175.97 -91.31 172.62 C-92.25 172.15 -93.19 171.68 -94.16 171.2 C-98.21 168.88 -100.6 165.93 -102.69 161.75 C-103.13 156.07 -102.92 151.06 -100.69 145.75 C-101.47 146.25 -102.25 146.74 -103.06 147.25 C-108.4 149.46 -113.5 150.03 -118.97 147.84 C-124.41 144.69 -127.68 140.77 -129.69 134.75 C-130.32 127.34 -128.65 122.55 -124.09 116.69 C-122.66 115.01 -121.2 113.36 -119.69 111.75 C-121.01 111.75 -122.33 111.75 -123.69 111.75 C-123.69 111.09 -123.69 110.43 -123.69 109.75 C-124.25 110.08 -124.81 110.42 -125.4 110.76 C-146.12 122.44 -163.58 119.38 -185.69 113.75 C-191.49 112.09 -191.49 112.09 -192.99 109.44 C-193.34 108.11 -193.34 108.11 -193.69 106.75 C-193.9 105.95 -194.11 105.14 -194.32 104.31 C-195.71 97.08 -195.9 90.11 -195.69 82.75 C-195.36 82.75 -195.03 82.75 -194.69 82.75 C-194.58 83.71 -194.47 84.66 -194.36 85.64 C-194.2 86.94 -194.04 88.23 -193.88 89.56 C-193.72 90.83 -193.57 92.09 -193.42 93.39 C-192.66 98.63 -191.16 103.68 -189.69 108.75 C-185.33 109.18 -180.98 109.61 -176.62 110.03 C-175.14 110.18 -173.67 110.32 -172.19 110.47 C-154.32 112.82 -154.32 112.82 -137.62 107.5 C-136.88 107.1 -136.14 106.71 -135.37 106.3 C-131.42 104.12 -129.67 102.84 -127.69 98.75 C-125.34 97.77 -125.34 97.77 -122.62 97.12 C-120.97 96.72 -119.31 96.27 -117.69 95.75 C-117.36 95.09 -117.03 94.43 -116.69 93.75 C-122.63 94.74 -122.63 94.74 -128.69 95.75 C-128.69 95.09 -128.69 94.43 -128.69 93.75 C-129.79 93.87 -129.79 93.87 -130.91 93.99 C-154.88 96.2 -168.98 89.89 -188.69 76.75 C-189 74.03 -189.11 71.59 -189.06 68.88 C-189.06 68.12 -189.05 67.36 -189.04 66.58 C-188.9 60.03 -187.71 53.99 -185.69 47.75 C-184.29 51.94 -184.68 56.05 -184.81 60.42 C-184.85 62.54 -184.78 64.63 -184.69 66.75 C-184.7 67.89 -184.7 67.89 -184.71 69.05 C-184.49 71.78 -184.11 73.39 -182.69 75.75 C-179.07 78.3 -175.24 79.99 -171.12 81.61 C-169.2 82.37 -167.31 83.18 -165.42 84.01 C-158.15 87.08 -152.45 88.51 -144.69 86.75 C-143.28 86.51 -141.87 86.27 -140.46 86.03 C-138.56 85.64 -138.56 85.64 -136.62 85.25 C-135.33 84.99 -134.04 84.73 -132.71 84.47 C-129.82 84.06 -129.82 84.06 -128.69 82.75 C-127 82.68 -125.31 82.67 -123.62 82.69 C-122.25 82.7 -122.25 82.7 -120.84 82.71 C-119.77 82.73 -119.77 82.73 -118.69 82.75 C-119.02 81.76 -119.35 80.77 -119.69 79.75 C-121.76 79.02 -121.76 79.02 -124.19 78.69 C-126.66 78.28 -126.66 78.28 -128.69 77.75 C-129.02 77.09 -129.35 76.43 -129.69 75.75 C-131.87 75.02 -131.87 75.02 -134.54 74.49 C-135.53 74.26 -136.53 74.02 -137.56 73.78 C-139.66 73.31 -141.76 72.85 -143.86 72.4 C-151.15 70.67 -155.55 68.18 -160.69 62.75 C-161.47 61.96 -161.47 61.96 -162.27 61.16 C-163.69 59.7 -165.07 58.2 -166.44 56.69 C-166.89 56.2 -167.35 55.71 -167.82 55.2 C-175.74 46.51 -175.74 46.51 -175.6 41.89 C-170.42 24.24 -170.42 24.24 -163.69 18.75 C-164.75 22.03 -165.89 25.24 -167.19 28.44 C-167.7 29.87 -168.2 31.31 -168.69 32.75 C-168.97 33.57 -169.26 34.38 -169.55 35.23 C-170.7 39.42 -171.36 42.37 -169.4 46.37 C-167.31 49.07 -165.1 51.39 -162.62 53.75 C-161.77 54.58 -160.92 55.42 -160.04 56.28 C-151.31 64.16 -142.28 66.33 -130.69 65.75 C-129.43 65.57 -128.18 65.39 -126.89 65.21 C-123.76 64.76 -121.77 64.9 -118.75 65.69 C-117.98 65.88 -117.21 66.08 -116.41 66.28 C-115.84 66.43 -115.27 66.59 -114.69 66.75 C-114.36 66.09 -114.03 65.43 -113.69 64.75 C-114.59 64.46 -115.5 64.17 -116.44 63.88 C-119.01 62.98 -121.3 62.04 -123.69 60.75 C-123.69 59.76 -123.69 58.77 -123.69 57.75 C-124.33 57.51 -124.98 57.28 -125.64 57.03 C-129.68 55.33 -133.51 53.3 -137.38 51.25 C-138.53 50.64 -138.53 50.64 -139.71 50.03 C-140.45 49.64 -141.19 49.25 -141.95 48.84 C-142.62 48.49 -143.29 48.14 -143.98 47.77 C-146.63 46.18 -147.58 45.13 -148.41 42.12 C-149.1 38.56 -149.78 35 -150.44 31.44 C-150.68 30.2 -150.93 28.96 -151.18 27.69 C-151.52 25.9 -151.52 25.9 -151.86 24.07 C-152.07 22.98 -152.27 21.89 -152.49 20.76 C-152.78 16.34 -151.62 13.82 -148.74 10.51 C-148.02 9.83 -147.3 9.14 -146.56 8.44 C-145.84 7.74 -145.11 7.04 -144.37 6.32 C-143.81 5.8 -143.26 5.29 -142.69 4.75 C-142.69 5.74 -142.69 6.73 -142.69 7.75 C-144.02 8.86 -144.02 8.86 -145.38 10 C-146.89 11.54 -146.89 11.54 -147.69 13.75 C-147.03 23.31 -143.7 32.71 -140.69 41.75 C-138.71 42.49 -136.71 43.14 -134.69 43.75 C-131.37 45.29 -128.09 46.89 -124.81 48.51 C-121.83 49.92 -121.83 49.92 -119.02 49.74 C-115.97 49.75 -115.17 50.75 -113 52.81 C-110.55 54.8 -109.3 55.72 -106.12 55.89 C-104.39 55.67 -102.66 55.41 -100.95 55.11 C-98.69 54.75 -98.69 54.75 -95.88 55.38 C-93.52 56.03 -93.52 56.03 -91.25 54.19 C-88.69 52.75 -88.69 52.75 -85.69 53.5 C-84.7 53.91 -83.71 54.33 -82.69 54.75 C-79.64 55.59 -77.83 55.77 -74.69 55.25 C-71.69 54.75 -71.69 54.75 -69.19 55.44 C-65.38 55.91 -63.62 54.03 -60.69 51.75 C-60.03 51.09 -59.37 50.43 -58.69 49.75 C-57.84 49.79 -56.98 49.82 -56.11 49.86 C-51.46 49.71 -48.13 48.01 -44 46 C-43.24 45.65 -42.48 45.3 -41.7 44.95 C-36.89 42.65 -33.79 40.79 -31.89 35.54 C-31.69 34.75 -31.5 33.97 -31.3 33.16 C-30.98 31.86 -30.98 31.86 -30.65 30.53 C-30.43 29.64 -30.22 28.74 -30 27.81 C-29.78 26.92 -29.55 26.02 -29.32 25.1 C-27.2 17.66 -27.2 17.66 -29 10.51 C-29.56 9.83 -30.11 9.14 -30.69 8.44 C-31.24 7.74 -31.8 7.04 -32.38 6.32 C-32.81 5.8 -33.24 5.29 -33.69 4.75 C-30.44 6.16 -28.33 7.84 -25.94 10.44 C-25.32 11.08 -24.71 11.72 -24.08 12.39 C-22.11 15.73 -22.42 17.88 -22.69 21.75 C-22.73 22.61 -22.77 23.48 -22.81 24.37 C-24.01 42.25 -24.01 42.25 -30 47.95 C-35.42 51.63 -41.27 54.13 -47.31 56.6 C-50.55 58.16 -52.32 60.08 -54.69 62.75 C-58 64.06 -58 64.06 -60.69 64.75 C-60.69 65.74 -60.69 66.73 -60.69 67.75 C-60.08 67.53 -59.48 67.32 -58.86 67.09 C-58.06 66.82 -57.26 66.54 -56.44 66.25 C-55.65 65.97 -54.86 65.69 -54.05 65.41 C-51.69 64.75 -51.69 64.75 -47.69 64.75 C-47.69 65.41 -47.69 66.07 -47.69 66.75 C-46.6 66.57 -46.6 66.57 -45.48 66.38 C-43.48 66.05 -41.48 65.72 -39.48 65.38 C-38.23 65.17 -36.98 64.97 -35.69 64.75 C-34.78 64.68 -33.88 64.62 -32.95 64.55 C-24 63.64 -19.5 60.13 -13.38 53.75 C-12.08 52.53 -12.08 52.53 -10.77 51.29 C-6.31 46.87 -6.31 46.87 -4.28 41.12 C-4.66 36.16 -6.19 31.75 -8.31 27.25 C-9.16 25.44 -9.96 23.61 -10.69 21.75 C-10.36 21.09 -10.03 20.43 -9.69 19.75 C-4.08 26.47 -0.75 34.67 0.76 43.29 C0.09 46.99 -2.17 49.24 -4.62 51.94 C-5.13 52.5 -5.63 53.07 -6.15 53.65 C-7.18 54.8 -8.21 55.95 -9.24 57.1 C-10.54 58.58 -11.76 60.13 -12.96 61.68 C-18.59 68.75 -23.96 70.89 -32.69 72.75 C-33.58 72.97 -34.46 73.19 -35.38 73.42 C-39 74.3 -41.92 74.75 -45.69 74.75 C-45.69 75.74 -45.69 76.73 -45.69 77.75 C-48.99 78.41 -52.29 79.07 -55.69 79.75 C-55.69 80.41 -55.69 81.07 -55.69 81.75 C-55.02 81.8 -54.36 81.85 -53.68 81.9 C-52.79 81.97 -51.91 82.05 -51 82.12 C-50.13 82.19 -49.26 82.26 -48.36 82.34 C-45.54 82.77 -43.34 83.69 -40.69 84.75 C-38.06 85.37 -35.46 85.93 -32.81 86.44 C-31.79 86.65 -31.79 86.65 -30.75 86.87 C-21.05 88.72 -13.67 85.36 -4.88 81.5 C-3.73 81.02 -2.59 80.54 -1.41 80.05 C-0.32 79.58 0.77 79.1 1.89 78.61 C2.89 78.18 3.88 77.75 4.9 77.31 C7.84 75.41 8.39 74.07 9.31 70.75 C10.25 65.73 10.42 60.91 10.38 55.81 C10.37 54.79 10.37 54.79 10.36 53.74 C10.35 52.08 10.33 50.41 10.31 48.75 C13.12 52.96 13.44 56.64 13.41 61.61 C13.41 62.5 13.4 63.39 13.4 64.3 C13.39 65.21 13.38 66.12 13.38 67.06 C13.37 67.99 13.37 68.93 13.36 69.88 C13.35 72.17 13.33 74.46 13.31 76.75 C8.02 79.83 8.02 79.83 5.45 81.26 C2.07 83.14 -1.21 85.08 -4.42 87.25 C-16.67 95.13 -28.88 94.97 -43.16 94.69 C-45.68 94.57 -45.68 94.57 -47.69 95.75 C-50.07 95.41 -50.07 95.41 -52.81 94.81 C-54.18 94.52 -54.18 94.52 -55.57 94.22 C-56.62 93.99 -56.62 93.99 -57.69 93.75 C-56.85 95.98 -56.85 95.98 -54.4 96.6 C-53.49 96.86 -52.57 97.11 -51.62 97.38 C-50.71 97.64 -49.79 97.9 -48.84 98.16 C-48.13 98.36 -47.42 98.55 -46.69 98.75 C-46.69 99.74 -46.69 100.73 -46.69 101.75 C-43.96 103.46 -41.2 105.11 -38.44 106.75 C-37.68 107.23 -36.92 107.7 -36.14 108.2 C-29.53 112.05 -24.22 112.37 -16.69 111.75 C-15.52 111.66 -14.36 111.56 -13.16 111.47 C-9.47 111.13 -5.8 110.73 -2.12 110.31 C-0.87 110.18 0.39 110.04 1.68 109.9 C8.09 109.28 8.09 109.28 14.31 107.75 C17.69 100.13 18.98 92.02 19.31 83.75 C19.64 83.75 19.97 83.75 20.31 83.75 C21.04 104.98 21.04 104.98 17.31 111.75 C11.3 114.15 4.95 114.98 -1.41 116.04 C-3.42 116.37 -5.43 116.72 -7.44 117.07 C-19.7 119.12 -27.95 119.67 -39.44 114.69 C-47.29 111.02 -47.29 111.02 -55.69 111.75 C-55.23 112.22 -54.77 112.7 -54.3 113.18 C-49.51 118.34 -45.25 123.61 -44.46 130.82 C-44.82 137.9 -49.42 142.69 -54.44 147.25 C-58.94 149.33 -62.81 149.42 -67.69 148.75 C-71.08 147.39 -73.65 145.77 -76.69 143.75 C-78.99 149.67 -80.15 154.3 -78.72 160.55 C-75.63 167.16 -71.28 169.86 -64.88 172.69 C-50.96 179.2 -50.96 179.2 -47.69 185.75 C-46.92 192.48 -47.4 198.32 -51.69 203.75 C-62.51 214.22 -82.39 216.98 -96.78 216.87 C-101.35 216.68 -105.76 215.97 -110.25 215.12 C-111.2 214.95 -112.15 214.77 -113.13 214.58 C-138.26 209.61 -160.18 198.53 -178.69 180.75 C-179.59 179.91 -180.5 179.06 -181.43 178.2 C-188.32 171.61 -193.58 164.78 -198.69 156.75 C-199.3 155.82 -199.92 154.89 -200.55 153.93 C-218.5 125.34 -221.18 91.04 -214.69 58.75 C-206.94 26.52 -185.73 -1.74 -157.69 -19.06 C-106.04 -49.77 -42.71 -41.9 0 0 Z' fill='%23d4af37' transform='translate(218.6875,39.25)'/%3E%3C/svg%3E");
+}
+
+/* Warning Icon - Uses currentColor for text color inheritance */
+.alien-warning-icon {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  margin: 0 0.2em;
+  background-color: currentColor;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99zM11 10v4h2v-4h-2zm0 6v2h2v-2h-2z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99zM11 10v4h2v-4h-2zm0 6v2h2v-2h-2z'/%3E%3C/svg%3E");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+/* Special Markers */
+.alien-marker {
+  display: inline-block;
+  padding: 0.2em 0.6em;
+  border-radius: 3px;
+  font-size: 0.85em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-right: 0.5em;
+}
+
+.alien-marker.stress {
+  background: var(--alien-warning);
+  color: black;
+}
+
+.alien-marker.panic {
+  background: var(--alien-danger);
+  color: white;
+}
+
+.alien-marker.optional {
+  background: var(--alien-accent);
+  color: var(--alien-bg);
+}
+
+/* Three Column Layout */
+.alien-three-column {
+  display: flex;
+  gap: 1em;
+  align-items: stretch;
+  margin: 1.5em 0;
+}
+
+.alien-side-column {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  min-width: 120px;
+}
+
+.alien-center-column {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1em;
+}
+
+.alien-button-box {
+  background: linear-gradient(135deg, var(--alien-bg) 0%, var(--alien-primary) 100%);
+  border: 2px solid var(--alien-border);
+  padding: 0.8em 1.2em;
+  border-radius: 3px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Equipment and Items */
+.alien-item {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--alien-border);
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 4px;
+}
+
+.alien-item-name {
+  font-weight: bold;
+  color: var(--alien-accent);
+  font-size: 1.1em;
+  margin-bottom: 0.5em;
+}
+
+.alien-item-properties {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  margin-top: 0.5em;
+  font-size: 0.9em;
+}
+
+.alien-item-property {
+  background: rgba(127, 176, 105, 0.2);
+  padding: 0.3em 0.6em;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+/* ========================================== */
+/* ALIEN RPG SPECIFIC ELEMENTS */
+/* ========================================== */
+
+/* Chapter Start - Hero Box Style */
+.alien-chapter-start {
+  margin: 2em 0 3em 0;
+  padding: 0;
+  border: none;
+}
+
+.alien-chapter-number {
+  font-family: 'Changa';
+  font-size: 0.9em;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--alien-accent);
+  padding: 0.5em 0;
+  border-right: 1px solid var(--alien-border);
+  display: inline-block;
+  position: relative;
+  padding-right: 1.5em;
+  margin-bottom: 0px;
+}
+
+.alien-chapter-title {
+  font-family: 'Changa', 'Bebas Neue', 'Oswald', impact, sans-serif;
+  font-size: 2.5em;
+  line-height: 1.1;
+  color: var(--alien-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.5em 0;
+  margin: 0.5em 0;
+  text-align: center;
+  border-bottom: 2px solid var(--alien-accent);
+}
+
+/* Hero Box Title - Large 5em size with minimal padding */
+h1.alien-chapter-title {
+  font-family: 'Changa';
+  font-size: 5em;
+  padding-top: 0.02em;
+  padding-bottom: 0.05em;
+  margin: 0;
+  border-bottom: 1px solid var(--alien-border);
+  border-top: 1px solid var(--alien-border) !important;
+}
+
+.alien-chapter-quote {
+  font-family: 'Changa';
+  font-style: italic;
+  font-size: 0.95em;
+  color: var(--alien-text);
+  padding: 1em 0;
+  margin: 0;
+  text-align: left;
+  border-bottom: 1px solid var(--alien-border);
+}
+
+.alien-chapter-quote-author {
+  display: block;
+  margin-top: 0.5em;
+  font-size: 0.85em;
+  color: var(--alien-accent);
+  font-style: normal;
+}
+
+.alien-chapter-footer {
+  font-family: 'Changa';
+  font-size: 0.85em;
+  color: var(--alien-accent);
+  padding: 0.5em 0;
+  display: inline-block;
+  position: relative;
+  padding-right: 1.5em;
+  margin-top: 0px;
+  border-right: 1px solid var(--alien-border);
+}
+
+
+/* Ship's Log Story Cards */
+.alien-ships-log {
+  background: linear-gradient(135deg, var(--alien-bg) 0%, var(--alien-primary) 100%);
+  border: 2px solid var(--alien-accent);
+  border-radius: 6px;
+  padding: 1.5em;
+  margin: 2em 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  max-width: 700px;
+}
+
+.alien-ships-log-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid var(--alien-border);
+}
+
+.alien-ships-log-header {
+  text-transform: uppercase;
+  font-size: 0.85em;
+  color: var(--alien-accent);
+  letter-spacing: 0.1em;
+}
+
+.alien-ships-log-meta {
+  font-family: monospace;
+  font-size: 0.85em;
+  color: var(--alien-warning);
+}
+
+.alien-ships-log-recorder-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid var(--alien-border);
+}
+
+.alien-ships-log-recorder {
+  font-style: italic;
+  color: var(--alien-text);
+  font-size: 0.9em;
+  flex-shrink: 0;
+}
+
+/* Base waveform styling - shared by all patterns */
+.alien-ships-log-waveform {
+  margin-left: auto;
+  width: 50%;
+  height: 30px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right center;
+}
+
+/* Pattern 1: Quiet/Calm - sparse activity with occasional spikes */
+.alien-ships-log-waveform-1 {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 30'%3E%3Crect x='0' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='4' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='8' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='12' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='16' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='20' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='24' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='28' y='10' width='2' height='10' fill='%237fb069' opacity='0.7'/%3E%3Crect x='32' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='36' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='40' y='8' width='2' height='14' fill='%237fb069' opacity='0.7'/%3E%3Crect x='44' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='48' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='52' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='56' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='60' y='10' width='2' height='10' fill='%237fb069' opacity='0.7'/%3E%3Crect x='64' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='68' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='72' y='6' width='2' height='18' fill='%237fb069' opacity='0.7'/%3E%3Crect x='76' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='80' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='84' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='88' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='92' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='96' y='9' width='2' height='12' fill='%237fb069' opacity='0.7'/%3E%3Crect x='100' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='104' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='108' y='10' width='2' height='10' fill='%237fb069' opacity='0.7'/%3E%3Crect x='112' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='116' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='120' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='124' y='5' width='2' height='20' fill='%237fb069' opacity='0.7'/%3E%3Crect x='128' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='132' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='136' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='140' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='144' y='10' width='2' height='10' fill='%237fb069' opacity='0.7'/%3E%3Crect x='148' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='152' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='156' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='160' y='8' width='2' height='14' fill='%237fb069' opacity='0.7'/%3E%3Crect x='164' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='168' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='172' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='176' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='180' y='10' width='2' height='10' fill='%237fb069' opacity='0.7'/%3E%3Crect x='184' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='188' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='192' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='196' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3C/svg%3E");
+}
+
+/* Pattern 2: Clustered bursts - groups of activity with gaps */
+.alien-ships-log-waveform-2 {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 30'%3E%3Crect x='0' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='4' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='8' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='12' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='16' y='9' width='2' height='12' fill='%237fb069' opacity='0.7'/%3E%3Crect x='20' y='7' width='2' height='16' fill='%237fb069' opacity='0.7'/%3E%3Crect x='24' y='8' width='2' height='14' fill='%237fb069' opacity='0.7'/%3E%3Crect x='28' y='10' width='2' height='10' fill='%237fb069' opacity='0.7'/%3E%3Crect x='32' y='9' width='2' height='12' fill='%237fb069' opacity='0.7'/%3E%3Crect x='36' y='6' width='2' height='18' fill='%237fb069' opacity='0.7'/%3E%3Crect x='40' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='44' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='48' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='52' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='56' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='60' y='10' width='2' height='10' fill='%237fb069' opacity='0.7'/%3E%3Crect x='64' y='5' width='2' height='20' fill='%237fb069' opacity='0.7'/%3E%3Crect x='68' y='8' width='2' height='14' fill='%237fb069' opacity='0.7'/%3E%3Crect x='72' y='7' width='2' height='16' fill='%237fb069' opacity='0.7'/%3E%3Crect x='76' y='9' width='2' height='12' fill='%237fb069' opacity='0.7'/%3E%3Crect x='80' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='84' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='88' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='92' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='96' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='100' y='8' width='2' height='14' fill='%237fb069' opacity='0.7'/%3E%3Crect x='104' y='6' width='2' height='18' fill='%237fb069' opacity='0.7'/%3E%3Crect x='108' y='4' width='2' height='22' fill='%237fb069' opacity='0.7'/%3E%3Crect x='112' y='7' width='2' height='16' fill='%237fb069' opacity='0.7'/%3E%3Crect x='116' y='9' width='2' height='12' fill='%237fb069' opacity='0.7'/%3E%3Crect x='120' y='10' width='2' height='10' fill='%237fb069' opacity='0.7'/%3E%3Crect x='124' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='128' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='132' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='136' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='140' y='9' width='2' height='12' fill='%237fb069' opacity='0.7'/%3E%3Crect x='144' y='6' width='2' height='18' fill='%237fb069' opacity='0.7'/%3E%3Crect x='148' y='5' width='2' height='20' fill='%237fb069' opacity='0.7'/%3E%3Crect x='152' y='7' width='2' height='16' fill='%237fb069' opacity='0.7'/%3E%3Crect x='156' y='10' width='2' height='10' fill='%237fb069' opacity='0.7'/%3E%3Crect x='160' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='164' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='168' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='172' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='176' y='8' width='2' height='14' fill='%237fb069' opacity='0.7'/%3E%3Crect x='180' y='6' width='2' height='18' fill='%237fb069' opacity='0.7'/%3E%3Crect x='184' y='9' width='2' height='12' fill='%237fb069' opacity='0.7'/%3E%3Crect x='188' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='192' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='196' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3C/svg%3E");
+}
+
+/* Pattern 3: Jagged peaks - sharp spikes and valleys */
+.alien-ships-log-waveform-3 {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 30'%3E%3Crect x='0' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='4' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='8' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='12' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='16' y='4' width='2' height='22' fill='%237fb069' opacity='0.7'/%3E%3Crect x='20' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='24' y='6' width='2' height='18' fill='%237fb069' opacity='0.7'/%3E%3Crect x='28' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='32' y='5' width='2' height='20' fill='%237fb069' opacity='0.7'/%3E%3Crect x='36' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='40' y='9' width='2' height='12' fill='%237fb069' opacity='0.7'/%3E%3Crect x='44' y='4' width='2' height='22' fill='%237fb069' opacity='0.7'/%3E%3Crect x='48' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='52' y='7' width='2' height='16' fill='%237fb069' opacity='0.7'/%3E%3Crect x='56' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='60' y='5' width='2' height='20' fill='%237fb069' opacity='0.7'/%3E%3Crect x='64' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='68' y='10' width='2' height='10' fill='%237fb069' opacity='0.7'/%3E%3Crect x='72' y='4' width='2' height='22' fill='%237fb069' opacity='0.7'/%3E%3Crect x='76' y='8' width='2' height='14' fill='%237fb069' opacity='0.7'/%3E%3Crect x='80' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='84' y='6' width='2' height='18' fill='%237fb069' opacity='0.7'/%3E%3Crect x='88' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='92' y='5' width='2' height='20' fill='%237fb069' opacity='0.7'/%3E%3Crect x='96' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='100' y='4' width='2' height='22' fill='%237fb069' opacity='0.7'/%3E%3Crect x='104' y='9' width='2' height='12' fill='%237fb069' opacity='0.7'/%3E%3Crect x='108' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='112' y='7' width='2' height='16' fill='%237fb069' opacity='0.7'/%3E%3Crect x='116' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='120' y='5' width='2' height='20' fill='%237fb069' opacity='0.7'/%3E%3Crect x='124' y='10' width='2' height='10' fill='%237fb069' opacity='0.7'/%3E%3Crect x='128' y='4' width='2' height='22' fill='%237fb069' opacity='0.7'/%3E%3Crect x='132' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='136' y='8' width='2' height='14' fill='%237fb069' opacity='0.7'/%3E%3Crect x='140' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='144' y='6' width='2' height='18' fill='%237fb069' opacity='0.7'/%3E%3Crect x='148' y='4' width='2' height='22' fill='%237fb069' opacity='0.7'/%3E%3Crect x='152' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='156' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='160' y='5' width='2' height='20' fill='%237fb069' opacity='0.7'/%3E%3Crect x='164' y='9' width='2' height='12' fill='%237fb069' opacity='0.7'/%3E%3Crect x='168' y='4' width='2' height='22' fill='%237fb069' opacity='0.7'/%3E%3Crect x='172' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='176' y='7' width='2' height='16' fill='%237fb069' opacity='0.7'/%3E%3Crect x='180' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='184' y='6' width='2' height='18' fill='%237fb069' opacity='0.7'/%3E%3Crect x='188' y='10' width='2' height='10' fill='%237fb069' opacity='0.7'/%3E%3Crect x='192' y='5' width='2' height='20' fill='%237fb069' opacity='0.7'/%3E%3Crect x='196' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3C/svg%3E");
+}
+
+/* Pattern 4: Dense forest - many medium bars packed together */
+.alien-ships-log-waveform-4 {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 30'%3E%3Crect x='0' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='4' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='8' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='12' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='16' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='20' y='10' width='2' height='10' fill='%237fb069' opacity='0.7'/%3E%3Crect x='24' y='9' width='2' height='12' fill='%237fb069' opacity='0.7'/%3E%3Crect x='28' y='8' width='2' height='14' fill='%237fb069' opacity='0.7'/%3E%3Crect x='32' y='10' width='2' height='10' fill='%237fb069' opacity='0.7'/%3E%3Crect x='36' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='40' y='9' width='2' height='12' fill='%237fb069' opacity='0.7'/%3E%3Crect x='44' y='8' width='2' height='14' fill='%237fb069' opacity='0.7'/%3E%3Crect x='48' y='10' width='2' height='10' fill='%237fb069' opacity='0.7'/%3E%3Crect x='52' y='7' width='2' height='16' fill='%237fb069' opacity='0.7'/%3E%3Crect x='56' y='9' width='2' height='12' fill='%237fb069' opacity='0.7'/%3E%3Crect x='60' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='64' y='8' width='2' height='14' fill='%237fb069' opacity='0.7'/%3E%3Crect x='68' y='10' width='2' height='10' fill='%237fb069' opacity='0.7'/%3E%3Crect x='72' y='9' width='2' height='12' fill='%237fb069' opacity='0.7'/%3E%3Crect x='76' y='7' width='2' height='16' fill='%237fb069' opacity='0.7'/%3E%3Crect x='80' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='84' y='10' width='2' height='10' fill='%237fb069' opacity='0.7'/%3E%3Crect x='88' y='8' width='2' height='14' fill='%237fb069' opacity='0.7'/%3E%3Crect x='92' y='9' width='2' height='12' fill='%237fb069' opacity='0.7'/%3E%3Crect x='96' y='10' width='2' height='10' fill='%237fb069' opacity='0.7'/%3E%3Crect x='100' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='104' y='7' width='2' height='16' fill='%237fb069' opacity='0.7'/%3E%3Crect x='108' y='9' width='2' height='12' fill='%237fb069' opacity='0.7'/%3E%3Crect x='112' y='8' width='2' height='14' fill='%237fb069' opacity='0.7'/%3E%3Crect x='116' y='10' width='2' height='10' fill='%237fb069' opacity='0.7'/%3E%3Crect x='120' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='124' y='9' width='2' height='12' fill='%237fb069' opacity='0.7'/%3E%3Crect x='128' y='7' width='2' height='16' fill='%237fb069' opacity='0.7'/%3E%3Crect x='132' y='10' width='2' height='10' fill='%237fb069' opacity='0.7'/%3E%3Crect x='136' y='8' width='2' height='14' fill='%237fb069' opacity='0.7'/%3E%3Crect x='140' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='144' y='9' width='2' height='12' fill='%237fb069' opacity='0.7'/%3E%3Crect x='148' y='10' width='2' height='10' fill='%237fb069' opacity='0.7'/%3E%3Crect x='152' y='8' width='2' height='14' fill='%237fb069' opacity='0.7'/%3E%3Crect x='156' y='7' width='2' height='16' fill='%237fb069' opacity='0.7'/%3E%3Crect x='160' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='164' y='9' width='2' height='12' fill='%237fb069' opacity='0.7'/%3E%3Crect x='168' y='10' width='2' height='10' fill='%237fb069' opacity='0.7'/%3E%3Crect x='172' y='8' width='2' height='14' fill='%237fb069' opacity='0.7'/%3E%3Crect x='176' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='180' y='9' width='2' height='12' fill='%237fb069' opacity='0.7'/%3E%3Crect x='184' y='7' width='2' height='16' fill='%237fb069' opacity='0.7'/%3E%3Crect x='188' y='10' width='2' height='10' fill='%237fb069' opacity='0.7'/%3E%3Crect x='192' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='196' y='9' width='2' height='12' fill='%237fb069' opacity='0.7'/%3E%3C/svg%3E");
+}
+
+/* Pattern 5: Rolling waves - smooth undulation with varied rhythm */
+.alien-ships-log-waveform-5 {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 30'%3E%3Crect x='0' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='4' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='8' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='12' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='16' y='10' width='2' height='10' fill='%237fb069' opacity='0.7'/%3E%3Crect x='20' y='8' width='2' height='14' fill='%237fb069' opacity='0.7'/%3E%3Crect x='24' y='6' width='2' height='18' fill='%237fb069' opacity='0.7'/%3E%3Crect x='28' y='8' width='2' height='14' fill='%237fb069' opacity='0.7'/%3E%3Crect x='32' y='10' width='2' height='10' fill='%237fb069' opacity='0.7'/%3E%3Crect x='36' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='40' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='44' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='48' y='9' width='2' height='12' fill='%237fb069' opacity='0.7'/%3E%3Crect x='52' y='6' width='2' height='18' fill='%237fb069' opacity='0.7'/%3E%3Crect x='56' y='5' width='2' height='20' fill='%237fb069' opacity='0.7'/%3E%3Crect x='60' y='7' width='2' height='16' fill='%237fb069' opacity='0.7'/%3E%3Crect x='64' y='9' width='2' height='12' fill='%237fb069' opacity='0.7'/%3E%3Crect x='68' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='72' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='76' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='80' y='8' width='2' height='14' fill='%237fb069' opacity='0.7'/%3E%3Crect x='84' y='5' width='2' height='20' fill='%237fb069' opacity='0.7'/%3E%3Crect x='88' y='4' width='2' height='22' fill='%237fb069' opacity='0.7'/%3E%3Crect x='92' y='6' width='2' height='18' fill='%237fb069' opacity='0.7'/%3E%3Crect x='96' y='8' width='2' height='14' fill='%237fb069' opacity='0.7'/%3E%3Crect x='100' y='10' width='2' height='10' fill='%237fb069' opacity='0.7'/%3E%3Crect x='104' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3Crect x='108' y='10' width='2' height='10' fill='%237fb069' opacity='0.7'/%3E%3Crect x='112' y='7' width='2' height='16' fill='%237fb069' opacity='0.7'/%3E%3Crect x='116' y='5' width='2' height='20' fill='%237fb069' opacity='0.7'/%3E%3Crect x='120' y='4' width='2' height='22' fill='%237fb069' opacity='0.7'/%3E%3Crect x='124' y='6' width='2' height='18' fill='%237fb069' opacity='0.7'/%3E%3Crect x='128' y='8' width='2' height='14' fill='%237fb069' opacity='0.7'/%3E%3Crect x='132' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='136' y='13' width='2' height='4' fill='%237fb069' opacity='0.7'/%3E%3Crect x='140' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='144' y='8' width='2' height='14' fill='%237fb069' opacity='0.7'/%3E%3Crect x='148' y='6' width='2' height='18' fill='%237fb069' opacity='0.7'/%3E%3Crect x='152' y='5' width='2' height='20' fill='%237fb069' opacity='0.7'/%3E%3Crect x='156' y='7' width='2' height='16' fill='%237fb069' opacity='0.7'/%3E%3Crect x='160' y='9' width='2' height='12' fill='%237fb069' opacity='0.7'/%3E%3Crect x='164' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='168' y='10' width='2' height='10' fill='%237fb069' opacity='0.7'/%3E%3Crect x='172' y='7' width='2' height='16' fill='%237fb069' opacity='0.7'/%3E%3Crect x='176' y='5' width='2' height='20' fill='%237fb069' opacity='0.7'/%3E%3Crect x='180' y='6' width='2' height='18' fill='%237fb069' opacity='0.7'/%3E%3Crect x='184' y='8' width='2' height='14' fill='%237fb069' opacity='0.7'/%3E%3Crect x='188' y='10' width='2' height='10' fill='%237fb069' opacity='0.7'/%3E%3Crect x='192' y='11' width='2' height='8' fill='%237fb069' opacity='0.7'/%3E%3Crect x='196' y='12' width='2' height='6' fill='%237fb069' opacity='0.7'/%3E%3C/svg%3E");
+}
+
+.alien-ships-log-transcription {
+  font-family: monospace;
+  line-height: 1.8;
+  color: var(--alien-text);
+}
+
+/* Timeline (Vertical) */
+.alien-timeline {
+  position: relative;
+  padding-left: 3em;
+  margin: 2em 0;
+}
+
+/* Main vertical timeline line */
+.alien-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--alien-accent);
+}
+
+.alien-timeline-item {
+  position: relative;
+  margin-bottom: 2em;
+  padding: 1em 1.5em;
+  border: 2px solid var(--alien-border);
+  border-radius: 6px;
+  background: linear-gradient(135deg, var(--alien-bg) 0%, var(--alien-primary) 100%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  max-width: 450px;
+  width: fit-content;
+}
+
+/* Connecting line from timeline to box */
+.alien-timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -3em;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3em;
+  height: 2px;
+  background: var(--alien-border);
+}
+
+.alien-timeline-date {
+  font-weight: bold;
+  color: var(--alien-accent);
+  font-size: 1.1em;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.alien-timeline-content {
+  color: var(--alien-text);
+  line-height: 1.6;
+}
+
+/* Info Boxes */
+/* Base info box - solid colored background */
+.alien-info-box {
+  background: var(--alien-accent);
+  color: var(--alien-text-dark);
+  padding: 1.5em;
+  margin: 1.5em 0;
+  border-radius: 4px;
+}
+
+/* Info Box with Top Border - thick top border with lightly colored background */
+.alien-info-box-top-border {
+  background: rgba(127, 176, 105, 0.15);
+  border-top: 5px solid var(--alien-accent);
+  border-radius: 4px;
+  padding: 1.5em;
+  margin: 1.5em 0;
+  color: var(--alien-text);
+}
+
+/* Info Box with Tab Header - tab-style header with no colored background */
+.alien-info-box-tab {
+  position: relative;
+  padding: 1.5em;
+  margin: 3em 0 1.5em 0;
+  background: transparent;
+  border: 2px solid var(--alien-accent);
+  border-radius: 4px;
+  color: var(--alien-text);
+}
+
+.alien-info-box-tab-header {
+  position: absolute;
+  top: -1.5em;
+  left: 1.5em;
+  background: var(--alien-accent);
+  color: var(--alien-text-dark);
+  padding: 0.5em 1.5em;
+  border-radius: 4px 4px 0 0;
+  font-family: 'Bebas Neue', 'Oswald', impact, sans-serif;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Inverted Info Box - single stroke borders, no background */
+.alien-info-box-inverted {
+  position: relative;
+  padding: 1.5em;
+  margin: 1.5em 0;
+  background: transparent;
+  border: 2px solid var(--alien-accent);
+  border-radius: 4px;
+  color: var(--alien-text);
+}
+
+/* Info box title (for use inside top-border and inverted boxes) */
+.alien-info-box-title {
+  font-family: 'Bebas Neue', 'Oswald', impact, sans-serif;
+  font-size: 1.4em;
+  text-transform: uppercase;
+  margin-bottom: 0.75em;
+  margin-top: 0;
+  color: var(--alien-accent);
+}
+
+/* Info box title for solid background boxes */
+.alien-info-box .alien-info-box-title {
+  color: var(--alien-text-dark);
+}
+
+/* Example Box */
+.alien-example-box {
+  background: rgba(127, 176, 105, 0.2);
+  border-left: 4px solid var(--alien-accent);
+  padding: 1.5em;
+  margin: 1.5em 0;
+  border-radius: 4px;
+}
+
+.alien-example-box-title {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--alien-accent);
+  font-size: 1.1em;
+  margin-bottom: 0.75em;
+}
+
+/* Example Box with Header Row */
+.alien-example-box-with-header {
+  background: transparent;
+  border: 2px solid var(--alien-accent);
+  padding: 0;
+  margin: 1.5em 0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.alien-example-box-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--alien-accent);
+  padding: 0.75em 1.5em;
+  border-bottom: 2px solid var(--alien-accent);
+}
+
+.alien-example-box-label {
+  font-family: 'Bebas Neue', 'Oswald', impact, sans-serif;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  color: var(--alien-text-dark);
+  font-weight: bold;
+}
+
+.alien-example-box-headline {
+  font-family: 'Bebas Neue', 'Oswald', impact, sans-serif;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  color: var(--alien-text-dark);
+  text-align: right;
+}
+
+.alien-example-box-content {
+  padding: 1.5em;
+  background: rgba(127, 176, 105, 0.1);
+}
+
+/* Negative Box (No background, normal borders) */
+.alien-negative-box {
+  position: relative;
+  padding: 1.5em;
+  margin: 1.5em 0;
+  background: transparent;
+  border: 2px solid var(--alien-accent);
+  border-radius: 4px;
+}
+
+/* Code/Highlight for specific words */
+.alien-code {
+  background: rgba(0, 0, 0, 0.4);
+  color: var(--alien-accent);
+  padding: 0.2em 0.5em;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.95em;
+  border: 1px solid var(--alien-border);
+  white-space: nowrap;
+}
+
+/* Quotes */
+.alien-quote {
+  font-style: italic;
+  font-size: 0.95em;
+  color: var(--alien-text);
+  padding-bottom: 1em;
+  margin: 2.5em 0px 0px 0px;
+  text-align: left;
+  border-bottom: 1px solid var(--alien-border);
+}
+
+.alien-quote-author {
+  font-size: 0.85em;
+  color: var(--alien-accent);
+  padding: 0.5em 0;
+  display: inline-block;
+  position: relative;
+  padding-right: 1.5em;
+  margin-top: 0px;
+  border-right: 1px solid var(--alien-border);
+}
+
+/* H1 Sub-header Quote - appears below H1 headings, styled like chapter hero box */
+.alien-h1-quote {
+  font-style: italic;
+  font-size: 0.95em;
+  color: var(--alien-text);
+  padding-bottom: 1em;
+  margin: 40px 0 0 0;
+  text-align: left;
+  border-bottom: 1px solid var(--alien-border);
+}
+
+/* Quote author/source for H1 quotes - displayed below the quote's bottom border */
+.alien-h1-quote-author {
+  /* display: block;
+  margin-top: 0.5em;
+  font-size: 0.85em;
+  color: var(--alien-accent);
+  font-style: normal; */
+  font-size: 0.85em;
+  color: var(--alien-accent);
+  padding: 0.5em 0;
+  display: inline-block;
+  position: relative;
+  padding-right: 1.5em;
+  margin: 0 0 40px 0;
+  border-right: 1px solid var(--alien-border);
+}
+
+/* Chevron Lists */
+.alien-content ul.alien-chevron-list {
+  list-style: none;
+  padding-left: 1.5em;
+}
+
+.alien-content ul.alien-chevron-list li::before {
+  content: '\203A';
+  font-size: 1.5em;
+  color: var(--alien-accent);
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.alien-content ul.alien-chevron-list li.no-chevron::before {
+  content: '';
+  width: 0;
+  margin-left: 0;
+}
+
+.alien-content ul.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.alien-content ul.flex li.full {
+  width: 100%;
+}
+
+.alien-content ul.flex li.half {
+  width: 50%;
+}
+
+/* Horizontal Linked List Navigation */
+.alien-nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  margin: 2em 0;
+  flex-wrap: wrap;
+}
+
+.alien-nav-item {
+  background: rgba(127, 176, 105, 0.2);
+  border: 2px solid var(--alien-accent);
+  padding: 0.75em 1.5em;
+  border-radius: 4px;
+  position: relative;
+}
+
+.alien-nav-item-label {
+  font-weight: bold;
+  color: var(--alien-text);
+}
+
+.alien-nav-item-key {
+  display: inline-block;
+  background: var(--alien-accent);
+  color: var(--alien-text-dark);
+  padding: 0.2em 0.5em;
+  border-radius: 3px;
+  font-family: monospace;
+  font-weight: bold;
+  margin-left: 0.5em;
+}
+
+.alien-nav-connector {
+  color: var(--alien-accent);
+  font-weight: bold;
+}
+
+.alien-nav-subtext {
+  text-align: center;
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  flex-wrap: wrap;
+}
+
+.alien-nav-subtext-item {
+  font-size: 0.85em;
+  color: var(--alien-text);
+}
+
+/* Sequence Diagrams */
+.alien-sequence-diagram {
+  background: rgba(0, 0, 0, 0.3);
+  border: 2px solid var(--alien-border);
+  padding: 1.5em;
+  margin: 1.5em 0;
+  border-radius: 4px;
+}
+
+.alien-sequence-step {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: 1em;
+  gap: 1em;
+}
+
+.alien-sequence-step:last-child {
+  margin-bottom: 0;
+}
+
+.alien-sequence-number {
+  flex-shrink: 0;
+  width: 3em;
+  min-width: 3em;
+  background: var(--alien-accent);
+  color: var(--alien-bg);
+  font-weight: bold;
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.alien-sequence-content {
+  flex: 1;
+  padding: 0.75em 1em;
+  background: rgba(127, 176, 105, 0.1);
+  border-left: 3px solid var(--alien-accent);
+}
+
+.alien-sequence-title {
+  font-weight: bold;
+  color: var(--alien-accent);
+  margin-bottom: 0.25em;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  letter-spacing: 0.05em;
+}
+
+.alien-sequence-description {
+  color: var(--alien-text);
+}
+
+/* Tables in Info Boxes */
+.alien-info-box .alien-table,
+.alien-example-box .alien-table {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.alien-info-box .alien-table th {
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--alien-text-dark);
+}
+
+.alien-info-box .alien-table td {
+  color: var(--alien-text-dark);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .alien-stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .alien-content h1 {
+    font-size: 2em;
+  }
+
+  .alien-content h2 {
+    font-size: 1.5em;
+  }
+
+  .alien-content {
+    font-size: 13px;
+  }
+
+  .alien-chapter-title {
+    font-size: 2em;
+  }
+
+  .alien-nav-list {
+    flex-direction: column;
+  }
+
+  .alien-nav-subtext {
+    flex-direction: column;
+    gap: 0.5em;
+  }
+}
+
+/* ========================================== */
+/* FLOW DIAGRAM */
+/* ========================================== */
+
+/* Flow diagram container */
+.alien-flow-diagram {
+  margin: 2em 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* Flow row - horizontal arrangement */
+.alien-flow-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin: 0.5em 0;
+}
+
+/* Flow row with spread - for branching (multiple outcomes with no arrows between) */
+.alien-flow-row-spread {
+  gap: 2em;
+}
+
+/* Flow node box */
+.alien-flow-node {
+  border: 2px solid var(--alien-border);
+  padding: 0.5em 1em;
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--alien-text);
+  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.9em;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* Flow nodes inside info boxes need different styling */
+.alien-info-box .alien-flow-node {
+  background: rgba(0, 0, 0, 0.15);
+  border-color: var(--alien-text-dark);
+  color: var(--alien-text-dark);
+}
+
+/* Horizontal arrow (right) */
+.alien-flow-arrow-right {
+  color: var(--alien-text);
+  font-size: 2em;
+  padding: 0 0.75em;
+  font-weight: bold;
+  line-height: 1;
+}
+
+/* Vertical arrow (down) */
+.alien-flow-arrow-down {
+  color: var(--alien-text);
+  font-size: 2em;
+  padding: 0.2em 0;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+}
+
+/* Corner arrow right (90 degree turn - down and to the right) ↳ */
+.alien-flow-arrow-corner-right {
+  color: var(--alien-text);
+  font-size: 2em;
+  padding: 0 0.5em;
+  font-weight: bold;
+  line-height: 1;
+}
+
+/* Corner arrow left (90 degree turn - down and to the left) ↲ */
+.alien-flow-arrow-corner-left {
+  color: var(--alien-text);
+  font-size: 2em;
+  padding: 0 0.5em;
+  font-weight: bold;
+  line-height: 1;
+}
+
+/* Horizontal line (for connecting branches) */
+.alien-flow-line {
+  color: var(--alien-text);
+  font-size: 2em;
+  padding: 0 0.5em;
+  font-weight: bold;
+  line-height: 1;
+}
+
+/* Arrows inside info boxes need dark color */
+.alien-info-box .alien-flow-arrow-right,
+.alien-info-box .alien-flow-arrow-down,
+.alien-info-box .alien-flow-arrow-corner-right,
+.alien-info-box .alien-flow-arrow-corner-left,
+.alien-info-box .alien-flow-line {
+  color: var(--alien-text-dark);
+}
+
+/* Diagram css - OLD TREE SYSTEM */
+.tree {
+  overflow: auto;
+  clear: both;
+  margin: 1em 0;
+  text-align: center;
+}
+
+/* Clearfix for tree container */
+.tree::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.tree ul {
+  padding-top: 40px;
+  padding-bottom: 0px;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+}
+
+/* Clearfix for each ul */
+.tree ul::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.tree li {
+  float: left;
+  text-align: center;
+  list-style-type: none;
+  position: relative;
+  padding: 40px 8px 0px 8px;
+
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+}
+
+/* Center single children */
+.tree li:only-child {
+  float: none;
+  width: 100%;
+  text-align: center;
+}
+
+/*We will use ::before and ::after to draw the connectors*/
+
+.tree li::before,
+.tree li::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 50%;
+  border-top: 2px solid var(--alien-border);
+  width: 50%;
+  height: 40px;
+}
+
+.tree li::after {
+  right: auto;
+  left: 50%;
+  border-left: 2px solid var(--alien-border);
+}
+
+/*We need to remove left-right connectors from elements without
+any siblings*/
+.tree li:only-child::after,
+.tree li:only-child::before {
+  display: none;
+}
+
+/*Remove space from the top of single children*/
+.tree li:only-child {
+  padding-top: 0;
+}
+
+/*Remove left connector from first child and 
+right connector from last child*/
+.tree li:first-child::before,
+.tree li:last-child::after {
+  border: 0 none;
+}
+
+/*Adding back the vertical connector to the last nodes*/
+.tree li:last-child::before {
+  border-right: 2px solid var(--alien-border);
+  border-radius: 0 5px 0 0;
+  -webkit-border-radius: 0 5px 0 0;
+  -moz-border-radius: 0 5px 0 0;
+}
+
+.tree li:first-child::after {
+  border-radius: 5px 0 0 0;
+  -webkit-border-radius: 5px 0 0 0;
+  -moz-border-radius: 5px 0 0 0;
+}
+
+/*Time to add downward connectors from parents*/
+.tree ul ul::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  border-left: 2px solid var(--alien-border);
+  width: 0;
+  height: 40px;
+}
+
+/* Tree node boxes */
+.tree-node {
+  border: 2px solid var(--alien-border);
+  padding: 0.5em 1em;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: var(--alien-text);
+  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.9em;
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.3);
+  position: relative;
+
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+}
+
+/* Hover effects for tree nodes */
+.tree-node:hover {
+  background: rgba(127, 176, 105, 0.2);
+  border-color: var(--alien-accent);
+  cursor: pointer;
+}
+
+/* Phase indicator */
+.phase-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 12px;
+  vertical-align: middle;
+}
+
+.phase-indicator .hex {
+  width: 12px;
+  height: 14px;
+  background: transparent;
+  position: relative;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  border: 2px solid var(--alien-accent, #c4a44a);
+}
+
+.phase-indicator .hex::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: transparent;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.phase-indicator .hex.filled {
+  background: var(--alien-accent, #c4a44a);
+}
+
+.phase-indicator .hex.empty {
+  background: transparent;
+  box-shadow: inset 0 0 0 2px var(--alien-accent, #c4a44a);
+}

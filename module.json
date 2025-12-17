@@ -1,0 +1,31 @@
+{
+  "id": "alien-rpg-core",
+  "title": "Alien RPG Core",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13"
+  },
+  "authors": [
+    {
+      "name": "Mattias Jöraas",
+      "flags": {}
+    }
+  ],
+  "flags": {
+    "canUpload": true
+  },
+  "relationships": {
+    "systems": [
+      {
+        "id": "alienrpg",
+        "type": "system",
+        "compatibility": {}
+      }
+    ]
+  },
+  "styles": [
+    "styles/alien-rpg.css"
+  ],
+  "description": ""
+}
